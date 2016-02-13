@@ -1,0 +1,22 @@
+﻿@model List<TripSystem.Models.Excurcao>
+@{
+    ViewBag.Title = "Trip Tour System";
+}
+<div id="promotion">
+</div>
+
+<h3><em>Pacotes mais vendidos</h3>
+
+<ul id="excurcao-list">
+    @foreach (var excurcao in Model)
+    {
+        <li>
+            <a href="@Url.Action("Details", "Store",
+            new { id = excurcao.ID })">
+
+                <img alt="@excurcao.Titulo" src="@excurcao.ExcurcaoArtUrl" /> 
+                <span>@excurcao.Titulo</span>
+            </a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,30 @@
+﻿@model TripSystem.Models.Excurcao
+
+@{
+    ViewBag.Title = "Excurcao - " + Model.Titulo;
+}
+
+<h2>@Model.Titulo</h2>
+
+<p>
+    <img alt="@Model.Titulo" src="@Model.ExcurcaoArtUrl" />
+</p>
+
+<div id="album-details">
+    <p>
+        <em>Genero:</em>
+        @Model.Genero.Nome
+    </p>
+    <p>
+        <em>Guia:</em>
+        @Model.Guia.Nome
+    </p>
+    <p>
+        <em>Preço:</em>
+        @String.Format("{0:F}", Model.Preco)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Adicionar ao carrinho", "AddToCart",
+        "ShoppingCart", new { id = Model.ID }, "")
+    </p>
+</div>

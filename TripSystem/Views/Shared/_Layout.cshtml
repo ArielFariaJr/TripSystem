@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Trip System</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet"
+          type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")"
+            type="text/javascript"></script>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <script src="~/Scripts/globalize/globalize.js"></script>
+    <script src="~/Scripts/globalize/cultures/globalize.culture.pt-BR.js"></script>
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script>
+
+        $.validator.methods.number = function (value, element) {
+            var val = Globalize.parseFloat(value);
+            return this.optional(element) ||
+                (val);
+        }
+
+        $.validator.methods.date = function (value, element) {
+            var val = Globalize.parseDate(value);
+            return this.optional(element) ||
+                (val);
+        }
+
+        $(function () {
+
+            Globalize.culture('pt-BR');
+
+            jQuery.extend(jQuery.validator.methods, {
+                range: function (value, element, param) {
+                    //Use the Globalization plugin to parse the value
+                    var val = Globalize.parseFloat(value);
+                    return this.optional(element) || (
+                        val >= param[0] && val <= param[1]);
+                }
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <img src="~/Content/images/trip_system_small.jpg" />
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li><a href="@Url.Content("~/Store/")">Pacotes</a></li>
+                        <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+                         <li>@Html.ActionLink("Sobre a Trip System", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Trip System</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

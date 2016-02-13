@@ -1,0 +1,15 @@
+﻿@model IEnumerable<TripSystem.Models.Genero>
+@{
+    ViewBag.Title = "Loja";
+}
+<h3>Categorias</h3>
+
+<p>
+    Selecione o genero do pacote:
+</p>
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>@Html.ActionLink(genre.Nome, "Browse", new { genre = genre.Nome })</li>
+    }
+</ul>

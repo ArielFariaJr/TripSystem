@@ -1,0 +1,93 @@
+﻿@model TripSystem.Models.Excurcao
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Excurcao</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GeneroId, "Genero")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("GeneroId", String.Empty)
+            @Html.ValidationMessageFor(model => model.GeneroId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GuiaId, "Guia")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("GuiaId", String.Empty)
+            @Html.ValidationMessageFor(model => model.GuiaId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Titulo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Titulo)
+            @Html.ValidationMessageFor(model => model.Titulo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LocalPartida)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LocalPartida)
+            @Html.ValidationMessageFor(model => model.LocalPartida)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataParida)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DataParida)
+            @Html.ValidationMessageFor(model => model.DataParida)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumeroPessoas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumeroPessoas)
+            @Html.ValidationMessageFor(model => model.NumeroPessoas)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Preco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Preco)
+            @Html.ValidationMessageFor(model => model.Preco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExcurcaoArtUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExcurcaoArtUrl)
+            @Html.ValidationMessageFor(model => model.ExcurcaoArtUrl)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

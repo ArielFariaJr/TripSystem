@@ -1,0 +1,58 @@
+﻿@model TripSystem.Models.Contato
+@{
+    ViewBag.Title = "Converse conosco. Deixe sua mensagem.";
+
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<table>
+    <tr>
+        <td>
+            <br />
+            <br />
+            <section class="contact">
+                <div>
+                    @Html.Partial("~/Views/Contato/Create.cshtml")
+                </div>
+            </section>
+        </td>
+        <td>
+            <p>
+            </p>
+
+        </td>
+
+        <td>
+            <header>
+                <h3>Telefone</h3>
+            </header>
+            <p>
+                <span class="label">Principal:</span>
+                <span>(041) 8821-7270</span>
+            </p>
+
+            <header>
+                <h3>Email</h3>
+            </header>
+            <p>
+                <span class="label">Suporte:</span>
+                <span><a href="mailto:suporte@tripsystem.com.br">suporte@tripsystem.com.br</a></span>
+            </p>
+            <p>
+                <span class="label">Marketing:</span>
+                <span><a href="mailto:marketing@tripsystem.com.br">marketing@tripsystem.com.br</a></span>
+            </p>
+
+            <header>
+                <h3>Endereço</h3>
+            </header>
+            <p>
+                Rua Sergio Navarro n° 65<br />
+                Curitiba, Paraná
+            </p>
+
+    </tr>
+</table>
