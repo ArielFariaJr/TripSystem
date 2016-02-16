@@ -194,6 +194,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreControllerController.cs" />
+    <Compile Include="Controllers\TransportadoraController.cs" />
     <Compile Include="Controllers\UsersProvider.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +210,8 @@
     <Compile Include="Models\Ordem.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\SystemEntities.cs" />
+    <Compile Include="Models\Transportadora.cs" />
+    <Compile Include="Models\Veiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
@@ -372,6 +375,11 @@
     <Content Include="Views\Checkout\Complete.cshtml" />
     <Content Include="Views\ShoppingCart\ShoppingCart.cshtml" />
     <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
+    <Content Include="Views\Transportadora\Index.cshtml" />
+    <Content Include="Views\Transportadora\Details.cshtml" />
+    <Content Include="Views\Transportadora\Create.cshtml" />
+    <Content Include="Views\Transportadora\Edit.cshtml" />
+    <Content Include="Views\Transportadora\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

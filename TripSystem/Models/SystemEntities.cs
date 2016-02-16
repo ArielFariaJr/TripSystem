@@ -15,5 +15,6 @@ namespace TripSystem.Models
         public DbSet<Carrinho> Carrinho { get; set; }
         public DbSet<Ordem> Ordem { get; set; }
         public DbSet<ItensOrdem> ItensOrdem { get; set; }
+        public DbSet<Transportadora> Transportadora { get; set; }
     }
 }
