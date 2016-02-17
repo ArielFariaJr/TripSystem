@@ -24,6 +24,13 @@
     </div>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Veiculo.MarcaCarro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Veiculo.MarcaCarro)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.Titulo)
     </div>
     <div class="display-field">
@@ -38,10 +45,17 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.DataParida)
+         @Html.DisplayNameFor(model => model.DataPartida)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.DataParida)
+        @Html.DisplayFor(model => model.DataPartida)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataRetorno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataRetorno)
     </div>
 
     <div class="display-label">
@@ -56,6 +70,10 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Preco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExcurcaoArtUrl)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ExcurcaoArtUrl)

@@ -30,10 +30,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.VeicuiloId, "Veiculo")
+            @Html.LabelFor(model => model.VeicuiloId)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("VeicuiloId", String.Empty)
+            @Html.EditorFor(model => model.VeicuiloId)
             @Html.ValidationMessageFor(model => model.VeicuiloId)
         </div>
 
@@ -54,19 +54,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DataPartida)
+            @Html.LabelFor(model => model.DataParida)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DataPartida)
-            @Html.ValidationMessageFor(model => model.DataPartida)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DataRetorno)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DataRetorno)
-            @Html.ValidationMessageFor(model => model.DataRetorno)
+            @Html.EditorFor(model => model.DataParida)
+            @Html.ValidationMessageFor(model => model.DataParida)
         </div>
 
         <div class="editor-label">

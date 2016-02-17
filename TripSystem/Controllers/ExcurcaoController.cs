@@ -16,10 +16,9 @@ namespace TripSystem.Controllers
         //
         // GET: /Excurcao/
 
-        [Authorize (Roles="Adminstrator")]
         public ActionResult Index()
         {
-            var excurcao = db.Excurcao.Include(e => e.Genero).Include(e => e.Guia);
+            var excurcao = db.Excurcao.Include(e => e.Genero).Include(e => e.Guia).Include(e => e.Veiculo);
             return View(excurcao.ToList());
         }
 
@@ -43,6 +42,7 @@ namespace TripSystem.Controllers
         {
             ViewBag.GeneroId = new SelectList(db.Genero, "ID", "Nome");
             ViewBag.GuiaId = new SelectList(db.Guia, "ID", "Nome");
+            ViewBag.VeicuiloId = new SelectList(db.Veiculo, "VeiculoId", "MarcaCarro");
             return View();
         }
 
@@ -62,6 +62,7 @@ namespace TripSystem.Controllers
 
             ViewBag.GeneroId = new SelectList(db.Genero, "ID", "Nome", excurcao.GeneroId);
             ViewBag.GuiaId = new SelectList(db.Guia, "ID", "Nome", excurcao.GuiaId);
+            ViewBag.VeicuiloId = new SelectList(db.Veiculo, "VeiculoId", "MarcaCarro", excurcao.VeicuiloId);
             return View(excurcao);
         }
 
@@ -77,6 +78,7 @@ namespace TripSystem.Controllers
             }
             ViewBag.GeneroId = new SelectList(db.Genero, "ID", "Nome", excurcao.GeneroId);
             ViewBag.GuiaId = new SelectList(db.Guia, "ID", "Nome", excurcao.GuiaId);
+            ViewBag.VeicuiloId = new SelectList(db.Veiculo, "VeiculoId", "MarcaCarro", excurcao.VeicuiloId);
             return View(excurcao);
         }
 
@@ -95,6 +97,7 @@ namespace TripSystem.Controllers
             }
             ViewBag.GeneroId = new SelectList(db.Genero, "ID", "Nome", excurcao.GeneroId);
             ViewBag.GuiaId = new SelectList(db.Guia, "ID", "Nome", excurcao.GuiaId);
+            ViewBag.VeicuiloId = new SelectList(db.Veiculo, "VeiculoId", "MarcaCarro", excurcao.VeicuiloId);
             return View(excurcao);
         }
 

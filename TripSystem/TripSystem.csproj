@@ -196,6 +196,7 @@
     <Compile Include="Controllers\StoreControllerController.cs" />
     <Compile Include="Controllers\TransportadoraController.cs" />
     <Compile Include="Controllers\UsersProvider.cs" />
+    <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,7 +212,7 @@
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\SystemEntities.cs" />
     <Compile Include="Models\Transportadora.cs" />
-    <Compile Include="Models\Veiculos.cs" />
+    <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
@@ -342,11 +343,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Excurcao\Index.cshtml" />
-    <Content Include="Views\Excurcao\Details.cshtml" />
-    <Content Include="Views\Excurcao\Create.cshtml" />
-    <Content Include="Views\Excurcao\Edit.cshtml" />
-    <Content Include="Views\Excurcao\Delete.cshtml" />
     <Content Include="Views\Guia\Index.cshtml" />
     <Content Include="Views\Guia\Details.cshtml" />
     <Content Include="Views\Guia\Create.cshtml" />
@@ -380,6 +376,16 @@
     <Content Include="Views\Transportadora\Create.cshtml" />
     <Content Include="Views\Transportadora\Edit.cshtml" />
     <Content Include="Views\Transportadora\Delete.cshtml" />
+    <Content Include="Views\Veiculo\Index.cshtml" />
+    <Content Include="Views\Veiculo\Details.cshtml" />
+    <Content Include="Views\Veiculo\Create.cshtml" />
+    <Content Include="Views\Veiculo\Edit.cshtml" />
+    <Content Include="Views\Veiculo\Delete.cshtml" />
+    <Content Include="Views\Excurcao\Index.cshtml" />
+    <Content Include="Views\Excurcao\Details.cshtml" />
+    <Content Include="Views\Excurcao\Create.cshtml" />
+    <Content Include="Views\Excurcao\Edit.cshtml" />
+    <Content Include="Views\Excurcao\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
