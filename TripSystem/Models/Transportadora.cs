@@ -31,7 +31,6 @@ namespace TripSystem.Models
         public string Rua    {get; set;}
 
         [Required(ErrorMessage = "O endereço da transportadora é obrigatório")]
-        [StringLength(10)]
         public int    Numero {get; set;}
 
         [Required(ErrorMessage = "O endereço da transportadora é obrigatório")]
