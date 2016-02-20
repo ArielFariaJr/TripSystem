@@ -25,8 +25,6 @@ namespace TripSystem.Models
 
         [Required(ErrorMessage = "Local de partida é obrigatório")]
         [DisplayName("Local de partida")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public string LocalPartida { get; set; }
 
         [Required(ErrorMessage = "Data de partida é obrigatório")]
@@ -37,9 +35,12 @@ namespace TripSystem.Models
 
         [Required(ErrorMessage = "Data de retorno é obrigatório")]
         [DisplayName("Data de retorno")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataRetorno { get; set; }
 
         [Required(ErrorMessage = "Numero de pessoas é obrigatório")]
+        [DisplayName("Numero de pessoas")]
         public int NumeroPessoas { get; set; }
 
         [Required(ErrorMessage = "Preço é obrigatório")]

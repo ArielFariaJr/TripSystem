@@ -1,4 +1,4 @@
-﻿@model TripSystem.Models.Excurcao
+﻿@model TripSystem.Models.Veiculo
 
 @{
     ViewBag.Title = "Edit";
@@ -11,78 +11,46 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Excurcao</legend>
+        <legend>Veiculo</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.GeneroId, "Genero")
+            @Html.LabelFor(model => model.TransportadoraId, "Transportadora")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("GeneroId", String.Empty)
-            @Html.ValidationMessageFor(model => model.GeneroId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GuiaId, "Guia")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("GuiaId", String.Empty)
-            @Html.ValidationMessageFor(model => model.GuiaId)
+            @Html.DropDownList("TransportadoraId", String.Empty)
+            @Html.ValidationMessageFor(model => model.TransportadoraId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.VeicuiloId)
+            @Html.LabelFor(model => model.MarcaCarro)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.VeicuiloId)
-            @Html.ValidationMessageFor(model => model.VeicuiloId)
+            @Html.EditorFor(model => model.MarcaCarro)
+            @Html.ValidationMessageFor(model => model.MarcaCarro)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Titulo)
+            @Html.LabelFor(model => model.ModeloCarro)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Titulo)
-            @Html.ValidationMessageFor(model => model.Titulo)
+            @Html.EditorFor(model => model.ModeloCarro)
+            @Html.ValidationMessageFor(model => model.ModeloCarro)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.LocalPartida)
+            @Html.LabelFor(model => model.QntAssentos)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.LocalPartida)
-            @Html.ValidationMessageFor(model => model.LocalPartida)
+            @Html.EditorFor(model => model.QntAssentos)
+            @Html.ValidationMessageFor(model => model.QntAssentos)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DataParida)
+            @Html.LabelFor(model => model.ValorDiaria)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DataParida)
-            @Html.ValidationMessageFor(model => model.DataParida)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NumeroPessoas)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NumeroPessoas)
-            @Html.ValidationMessageFor(model => model.NumeroPessoas)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Preco)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Preco)
-            @Html.ValidationMessageFor(model => model.Preco)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ExcurcaoArtUrl)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ExcurcaoArtUrl)
-            @Html.ValidationMessageFor(model => model.ExcurcaoArtUrl)
+            @Html.EditorFor(model => model.ValorDiaria)
+            @Html.ValidationMessageFor(model => model.ValorDiaria)
         </div>
 
         <p>

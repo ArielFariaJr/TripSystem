@@ -16,8 +16,8 @@ namespace TripSystem.Controllers
 
         public ActionResult Index()
         {
-            var genres = storeDB.Genero.ToList();
-
+            var genres = storeDB.Genero.GroupBy(x => x.Nome).Select(y => y.FirstOrDefault()).ToList() ;
+            
             return View(genres);
         }
 
@@ -26,10 +26,8 @@ namespace TripSystem.Controllers
 
         public ActionResult Browse(string genre)
         {
-            // Retrieve Genre and its Associated Albums from database
             var genreModel = storeDB.Genero.Include("Excurcao")
-                .Single(g => g.Nome == genre);
-
+            .Single(g => g.Nome == genre);
             return View(genreModel);
         }
 

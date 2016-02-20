@@ -7,7 +7,13 @@
 <h2>@Model.Titulo</h2>
 
 <p>
-    <img alt="@Model.Titulo" src="@Model.ExcurcaoArtUrl" />
+    @{
+        int position = Model.ExcurcaoArtUrl.LastIndexOf('/');
+        string image = Model.ExcurcaoArtUrl.Substring(position + 1);
+        
+    }
+
+    <img alt="@Model.Titulo" src="~/Content/images/@image" />
 </p>
 
 <div id="album-details">

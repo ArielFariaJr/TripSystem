@@ -10,10 +10,16 @@
     <ul id="album-list">
         @foreach (var excurcao in Model.Excurcao)
         {
+                        
+            int position = excurcao.ExcurcaoArtUrl.LastIndexOf('/');
+            string image = excurcao.ExcurcaoArtUrl.Substring(position + 1);
+                        
             <li>
-                <a href="@Url.Action("Details", new { id = excurcao.ID })"> 
-                <img alt="@excurcao.Titulo" src="@excurcao.ExcurcaoArtUrl" /> 
-                <span>@excurcao.Titulo</span> </a>
+                <a href="@Url.Action("Details", new { id = excurcao.ID })">
+                    <img alt="@excurcao.Titulo" src="~/Content/images/@image" />
+                    <br/>
+                    <span>@excurcao.Titulo</span>
+                </a>
             </li>
         }
     </ul>

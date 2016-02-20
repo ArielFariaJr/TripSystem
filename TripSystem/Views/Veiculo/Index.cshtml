@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TripSystem.Models.Excurcao>
+﻿@model IEnumerable<TripSystem.Models.Veiculo>
 
 @{
     ViewBag.Title = "Index";
@@ -12,31 +12,19 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Genero.Nome)
+            @Html.DisplayNameFor(model => model.Transportadora.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Guia.Nome)
+            @Html.DisplayNameFor(model => model.MarcaCarro)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VeicuiloId)
+            @Html.DisplayNameFor(model => model.ModeloCarro)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Titulo)
+            @Html.DisplayNameFor(model => model.QntAssentos)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LocalPartida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataParida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroPessoas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Preco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExcurcaoArtUrl)
+            @Html.DisplayNameFor(model => model.ValorDiaria)
         </th>
         <th></th>
     </tr>
@@ -44,36 +32,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Genero.Nome)
+            @Html.DisplayFor(modelItem => item.Transportadora.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Guia.Nome)
+            @Html.DisplayFor(modelItem => item.MarcaCarro)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.VeicuiloId)
+            @Html.DisplayFor(modelItem => item.ModeloCarro)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
+            @Html.DisplayFor(modelItem => item.QntAssentos)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LocalPartida)
+            @Html.DisplayFor(modelItem => item.ValorDiaria)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DataParida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroPessoas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Preco)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExcurcaoArtUrl)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.VeiculoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VeiculoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VeiculoId })
         </td>
     </tr>
 }

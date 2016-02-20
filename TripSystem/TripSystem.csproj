@@ -276,11 +276,18 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bundles\bootstrap.js" />
+    <Content Include="Scripts\bundles\bootstrap.min.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.culture.br.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.culture.pt-BR.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.js" />
     <Content Include="Scripts\globalize\currency.js" />
     <Content Include="Scripts\globalize\date.js" />
     <Content Include="Scripts\globalize\message.js" />
@@ -376,16 +383,16 @@
     <Content Include="Views\Transportadora\Create.cshtml" />
     <Content Include="Views\Transportadora\Edit.cshtml" />
     <Content Include="Views\Transportadora\Delete.cshtml" />
-    <Content Include="Views\Veiculo\Index.cshtml" />
-    <Content Include="Views\Veiculo\Details.cshtml" />
-    <Content Include="Views\Veiculo\Create.cshtml" />
-    <Content Include="Views\Veiculo\Edit.cshtml" />
-    <Content Include="Views\Veiculo\Delete.cshtml" />
     <Content Include="Views\Excurcao\Index.cshtml" />
     <Content Include="Views\Excurcao\Details.cshtml" />
     <Content Include="Views\Excurcao\Create.cshtml" />
     <Content Include="Views\Excurcao\Edit.cshtml" />
     <Content Include="Views\Excurcao\Delete.cshtml" />
+    <Content Include="Views\Veiculo\Index.cshtml" />
+    <Content Include="Views\Veiculo\Details.cshtml" />
+    <Content Include="Views\Veiculo\Create.cshtml" />
+    <Content Include="Views\Veiculo\Edit.cshtml" />
+    <Content Include="Views\Veiculo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

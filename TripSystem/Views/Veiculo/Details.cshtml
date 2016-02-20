@@ -1,4 +1,4 @@
-﻿@model TripSystem.Models.Excurcao
+﻿@model TripSystem.Models.Veiculo
 
 @{
     ViewBag.Title = "Details";
@@ -7,72 +7,44 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Excurcao</legend>
+    <legend>Veiculo</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Genero.Nome)
+         @Html.DisplayNameFor(model => model.Transportadora.Nome)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Genero.Nome)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Guia.Nome)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Guia.Nome)
+        @Html.DisplayFor(model => model.Transportadora.Nome)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.VeicuiloId)
+         @Html.DisplayNameFor(model => model.MarcaCarro)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.VeicuiloId)
+        @Html.DisplayFor(model => model.MarcaCarro)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Titulo)
+         @Html.DisplayNameFor(model => model.ModeloCarro)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Titulo)
+        @Html.DisplayFor(model => model.ModeloCarro)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LocalPartida)
+         @Html.DisplayNameFor(model => model.QntAssentos)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.LocalPartida)
+        @Html.DisplayFor(model => model.QntAssentos)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.DataParida)
+         @Html.DisplayNameFor(model => model.ValorDiaria)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.DataParida)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NumeroPessoas)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NumeroPessoas)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Preco)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Preco)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ExcurcaoArtUrl)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ExcurcaoArtUrl)
+        @Html.DisplayFor(model => model.ValorDiaria)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.VeiculoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

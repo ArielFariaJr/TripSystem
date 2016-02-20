@@ -68,7 +68,7 @@ namespace TripSystem.Controllers
             var results = new ShoppingCartRemoveViewModel
             {
                 Message = Server.HtmlEncode(carrinho) +
-                    " has been removed from your shopping cart.",
+                    " foi removido do seu carrinho.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
