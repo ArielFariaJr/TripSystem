@@ -16,5 +16,8 @@ namespace TripSystem.Models
         public decimal PrecoUnitario { get; set; }
         public virtual Excurcao Excurcao { get; set; }
         public virtual Ordem Ordem { get; set; }
+
+        [ScaffoldColumn(false)]
+        public System.DateTime OrderDate { get; set; }
     }
 }

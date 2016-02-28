@@ -17,5 +17,6 @@ namespace TripSystem.Models
         public DbSet<ItensOrdem> ItensOrdem { get; set; }
         public DbSet<Transportadora> Transportadora { get; set; }
         public DbSet<Veiculo> Veiculo { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
     }
 }

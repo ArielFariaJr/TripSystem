@@ -17,7 +17,7 @@ namespace TripSystem.Models
         public string Nome { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
 
         [Required(ErrorMessage = "O campo Idade é obrigatório")]

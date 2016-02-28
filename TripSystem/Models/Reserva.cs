@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Data.Entity;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace TripSystem.Models
 {
-    public class Ordem
+    public class Reserva
     {
         [Key, Column(Order = 1)]
         public int OrdemId { get; set; }
-
-        [Key, Column(Order = 2)]
+        
+        [Key, Column(Order = 3)]
         [ScaffoldColumn(false)]
-        public int OrdemItem { get; set; }
+        public int passageiroID { get; set; }
 
-        public List<ItensOrdem> ItensOrdem { get; set; }
+        public int ExcurcaoId { get; set; }
 
         [ScaffoldColumn(false)]
         public string Username { get; set; }
@@ -53,10 +54,12 @@ namespace TripSystem.Models
         public string Email { get; set; }
 
         [ScaffoldColumn(false)]
-        public System.DateTime OrderDate { get; set; }
+        public decimal PrecoUnitario { get; set; }
 
         [ScaffoldColumn(false)]
-        public decimal Total { get; set; }
-        
+        public System.DateTime OrderDate { get; set; }
+
+        public virtual Excurcao Excurcao { get; set; }
+
     }
 }

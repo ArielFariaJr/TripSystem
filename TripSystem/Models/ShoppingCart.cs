@@ -27,7 +27,7 @@ namespace TripSystem.Models
             return GetCart(controller.HttpContext);
         }
 
-        public void AddToCart(Excurcao excurcao)
+        public void AddToCart(Excurcao excurcao, int quantidade)
         {
             // Get the matching cart and album instances
             var cartItem = storeDB.Carrinho.SingleOrDefault(c => c.CarrinhoId == ShoppingCartId
@@ -40,7 +40,7 @@ namespace TripSystem.Models
                 {
                     ExcurcaoId = excurcao.ID,
                     CarrinhoId = ShoppingCartId,
-                    Count = 1,
+                    Count = quantidade,
                     DateCreated = DateTime.Now
                 };
 

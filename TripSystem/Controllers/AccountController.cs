@@ -82,6 +82,8 @@ namespace TripSystem.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+                    UsersProvider up = new UsersProvider();
+                    up.PutUserInRole(model.UserName);                    
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -89,9 +91,6 @@ namespace TripSystem.Controllers
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
             }
-
-            UsersProvider up = new UsersProvider();
-            up.PutUserInRole(model.UserName);
 
             // If we got this far, something failed, redisplay form
             return View(model);

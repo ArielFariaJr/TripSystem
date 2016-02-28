@@ -192,6 +192,7 @@
     <Compile Include="Controllers\GeneroController.cs" />
     <Compile Include="Controllers\GuiaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreControllerController.cs" />
     <Compile Include="Controllers\TransportadoraController.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Models\Guia.cs" />
     <Compile Include="Models\ItensOrdem.cs" />
     <Compile Include="Models\Ordem.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\SystemEntities.cs" />
     <Compile Include="Models\Transportadora.cs" />
@@ -393,6 +395,11 @@
     <Content Include="Views\Veiculo\Create.cshtml" />
     <Content Include="Views\Veiculo\Edit.cshtml" />
     <Content Include="Views\Veiculo\Delete.cshtml" />
+    <Content Include="Views\Reserva\Index.cshtml" />
+    <Content Include="Views\Reserva\Details.cshtml" />
+    <Content Include="Views\Reserva\Create.cshtml" />
+    <Content Include="Views\Reserva\Edit.cshtml" />
+    <Content Include="Views\Reserva\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
