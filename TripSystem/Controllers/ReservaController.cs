@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TripSystem.Models;
+using System.Web.SessionState;
 
 namespace TripSystem.Controllers
 {
@@ -16,6 +17,72 @@ namespace TripSystem.Controllers
         //
         // GET: /Reserva/
 
+        public ActionResult Finalizar()
+        {
+            var id = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID).
+                Select(p => p.OrdemId).FirstOrDefault();
+
+            return RedirectToAction("Complete",
+            new { id = id });
+        }
+
+        public ActionResult Complete(int id)
+        {
+            // Validate customer owns this order
+            bool isValid = db.Reserva.Any(
+                o => o.OrdemId == id &&
+                o.Username == User.Identity.Name);
+
+            if (isValid)
+            {
+
+                //Limpa carrinho
+                //var cartItem = db.Carrinho.Include(cart => cart.CarrinhoId == User.Identity.Name).ToList();
+
+                var cartItem = db.Carrinho.Where(cart => cart.CarrinhoId == User.Identity.Name).ToList();
+                int itemCount = 0;
+
+                if (cartItem != null)
+                {
+                    if (cartItem.Count > 1)
+                    {
+                        foreach (var aux in cartItem)
+                        {
+                            aux.Count--;
+                            itemCount = cartItem.Count;
+                            db.Carrinho.Remove(aux);
+
+                            if (cartItem == null)
+                            {
+                                break;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        db.Carrinho.Remove(cartItem.FirstOrDefault());
+                    }
+
+                    // Save changes
+                    db.SaveChanges();
+                }
+
+
+                //Renova Session
+                var x = Session.SessionID;
+                Session.Abandon();
+                var u = Session.SessionID;
+
+                return View(id);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [Authorize]
         public ActionResult Index()
         {
             var reserva = db.Reserva.Include(r => r.Excurcao);
@@ -46,13 +113,41 @@ namespace TripSystem.Controllers
 
         //
         // POST: /Reserva/Create
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Reserva reserva)
         {
             if (ModelState.IsValid)
             {
+                reserva.Username = User.Identity.Name.ToString();
+                reserva.OrderDate = DateTime.Now;
+                reserva.SessionID = Session.SessionID.ToString();
+
+                //Seleciona ultima ordem
+                var lastOrder = db.Reserva.Select(p => p.OrdemId).FirstOrDefault();
+                var lastOrderMem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID).
+                    Select(p => p.OrdemId).FirstOrDefault();
+
+                if (lastOrder > lastOrderMem)
+                {
+
+                    lastOrder = lastOrder + 1;
+                    reserva.OrdemId = lastOrder;
+                }
+                else
+                {
+                    reserva.OrdemId = lastOrderMem;
+                }
+
+                //Seleciona ultimo item da ordem atual
+                var lastItem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID
+                    && x.OrdemId == lastOrderMem).Select(p => p.passageiroID).FirstOrDefault();
+
+                lastItem = lastItem + 1;
+                reserva.passageiroID = lastItem;
+
+
                 db.Reserva.Add(reserva);
                 db.SaveChanges();
                 return RedirectToAction("Index");

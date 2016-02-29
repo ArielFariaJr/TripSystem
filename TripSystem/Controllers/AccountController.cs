@@ -21,6 +21,14 @@ namespace TripSystem.Controllers
         //
         // GET: /Account/Login
 
+        private void MigrateShoppingCart(string UserName)
+        {
+            // Associate shopping cart items with logged-in user
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.MigrateCart(UserName);
+            Session[ShoppingCart.CartSessionKey] = UserName;
+        }
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -38,7 +46,18 @@ namespace TripSystem.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                MigrateShoppingCart(model.UserName);
+
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             // If we got this far, something failed, redisplay form
@@ -82,8 +101,13 @@ namespace TripSystem.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+
                     UsersProvider up = new UsersProvider();
-                    up.PutUserInRole(model.UserName);                    
+                    up.PutUserInRole(model.UserName);
+
+                    MigrateShoppingCart(model.UserName);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

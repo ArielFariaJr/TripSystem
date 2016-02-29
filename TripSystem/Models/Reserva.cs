@@ -59,6 +59,9 @@ namespace TripSystem.Models
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
 
+        [ScaffoldColumn(false)]
+        public string SessionID { get; set; }
+
         public virtual Excurcao Excurcao { get; set; }
 
     }
