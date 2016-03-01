@@ -70,9 +70,10 @@ namespace TripSystem.Controllers
 
 
                 //Renova Session
-                var x = Session.SessionID;
-                Session.Abandon();
-                var u = Session.SessionID;
+
+                Session.Contents.Abandon();
+                Session.Contents.RemoveAll();
+                Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId"));
 
                 return View(id);
             }
@@ -85,7 +86,7 @@ namespace TripSystem.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var reserva = db.Reserva.Include(r => r.Excurcao);
+            var reserva = db.Reserva.Include(r => r.Excurcao).Where(r => r.SessionID == Session.SessionID);
             return View(reserva.ToList());
         }
 
