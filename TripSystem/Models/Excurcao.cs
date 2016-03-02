@@ -29,14 +29,14 @@ namespace TripSystem.Models
 
         [Required(ErrorMessage = "Data de partida é obrigatório")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}")]
         [DisplayName("Data de partida")]
         public DateTime DataPartida { get; set; }
 
         [Required(ErrorMessage = "Data de retorno é obrigatório")]
         [DisplayName("Data de retorno")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:-dd/MM/yyyy}")]
         public DateTime DataRetorno { get; set; }
 
         [Required(ErrorMessage = "Numero de pessoas é obrigatório")]
@@ -48,6 +48,10 @@ namespace TripSystem.Models
 
         [DisplayName("URL da imagem")]
         public string ExcurcaoArtUrl { get; set; }
+
+        [NotMapped]
+        [ScaffoldColumn(false)]
+        public int Quantidade { get; set; }
 
         public virtual Genero Genero { get; set; }
         public virtual Guia Guia { get; set; }

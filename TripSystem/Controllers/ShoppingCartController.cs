@@ -32,7 +32,7 @@ namespace TripSystem.Controllers
         //
         // GET: /Store/AddToCart/5
 
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id, int quantidade)
         {
 
             // Retrieve the album from the database
@@ -42,7 +42,7 @@ namespace TripSystem.Controllers
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedExcucao);
+            cart.AddToCart(addedExcucao, quantidade);
 
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");

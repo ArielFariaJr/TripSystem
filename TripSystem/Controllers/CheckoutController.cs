@@ -30,27 +30,19 @@ namespace MvcMusicStore.Controllers
 
             try
             {
-                if (string.Equals(values["PromoCode"], PromoCode,
-                    StringComparison.OrdinalIgnoreCase) == false)
-                {
-                    return View(order);
-                }
-                else
-                {
-                    order.Username = User.Identity.Name;
-                    order.OrderDate = DateTime.Now;
+                order.Username = User.Identity.Name;
+                order.OrderDate = DateTime.Now;
 
-                    //Save Order
-                    storeDB.Ordem.Add(order);
-                    storeDB.SaveChanges();
+                //Save Order
+                storeDB.Ordem.Add(order);
+                storeDB.SaveChanges();
 
-                    //Process the order
-                    var cart = ShoppingCart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
+                //Process the order
+                var cart = ShoppingCart.GetCart(this.HttpContext);
+                cart.CreateOrder(order);
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrdemId });
-                }
+                return RedirectToAction("Complete",
+                    new { id = order.OrdemId });
 
             }
             catch

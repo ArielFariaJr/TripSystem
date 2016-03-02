@@ -10,7 +10,7 @@
     @{
         int position = Model.ExcurcaoArtUrl.LastIndexOf('/');
         string image = Model.ExcurcaoArtUrl.Substring(position + 1);
-        
+
     }
 
     <img alt="@Model.Titulo" src="~/Content/images/@image" />
@@ -26,11 +26,38 @@
         @Model.Guia.Nome
     </p>
     <p>
-        <em>Preço:</em>
+        <em>Local de partida:</em>
+        @Model.LocalPartida
+    </p>
+    <p>
+        <em>Data de partida</em>
+        @Model.DataPartida
+    </p>
+    <p>
+        <em>Data de retorno:</em>
+        @Model.DataRetorno
+    </p>
+    <p>
+        <em>Preço unitário:</em>
         @String.Format("{0:F}", Model.Preco)
     </p>
-    <p class="button">
-        @Html.ActionLink("Adicionar ao carrinho", "AddToCart",
-        "ShoppingCart", new { id = Model.ID }, "")
-    </p>
+
 </div>
+
+@using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <em>Quantidade de pessoas</em>
+        <div class="editor-label">
+            @Html.EditorFor(model => model.Quantidade)
+            @Html.ValidationMessageFor(model => model.Quantidade)
+        </div>
+        <p>
+            <input type="submit" value="Adicionar ao carrinho" />
+
+        </p>
+    </fieldset>
+}
