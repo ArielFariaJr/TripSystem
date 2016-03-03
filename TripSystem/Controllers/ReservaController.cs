@@ -126,7 +126,8 @@ namespace TripSystem.Controllers
                 reserva.SessionID = Session.SessionID.ToString();
 
                 //Seleciona ultima ordem
-                var lastOrder = db.Reserva.Select(p => p.OrdemId).FirstOrDefault();
+                var lastOrder = db.Reserva.OrderByDescending(p => p.OrdemId).Select(c => c.OrdemId).Take(1).FirstOrDefault();
+
                 var lastOrderMem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID).
                     Select(p => p.OrdemId).FirstOrDefault();
 

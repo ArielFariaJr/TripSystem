@@ -81,4 +81,7 @@ c:\users\ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\bin\z
 c:\users\ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\bin\zh-Hant\System.Spatial.resources.dll
 c:\users\ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\obj\Debug\TripSystem.dll
 c:\users\ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\obj\Debug\TripSystem.pdb
+C:\Users\Ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\bin\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\Ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\obj\Debug\TripSystem.csprojResolveAssemblyReference.cache
+C:\Users\Ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\obj\Debug\RdlCompile.cache
+C:\Users\Ariel\documents\visual studio 2013\Projects\TripSystem\TripSystem\obj\Debug\RdlCompile.compiled

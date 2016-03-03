@@ -40,10 +40,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicosoftReportViewerWebForms_v11.1.0.1\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -185,6 +191,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Carrinhoes.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contatoes.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContatoController.cs" />
@@ -198,9 +210,24 @@
     <Compile Include="Controllers\TransportadoraController.cs" />
     <Compile Include="Controllers\UsersProvider.cs" />
     <Compile Include="Controllers\VeiculoController.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Excurcaos.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Generoes.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Guias.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItensOrdems.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Carrinho.cs" />
@@ -215,11 +242,42 @@
     <Compile Include="Models\SystemEntities.cs" />
     <Compile Include="Models\Transportadora.cs" />
     <Compile Include="Models\Veiculo.cs" />
+    <Compile Include="MyReports.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyReports.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyReports.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordems.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transportadoras.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Veiculoes.cs">
+      <DependentUpon>MyReports.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TripSystem.mdf" />
+    <Content Include="App_Data\TripSystem_log.ldf">
+      <DependentUpon>TripSystem.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\images\trip_system.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -277,6 +335,23 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <EntityDeploy Include="MyReports.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyReports.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MyReports.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyReports.edmx</DependentUpon>
+      <LastGenOutput>MyReports.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyReports.edmx.diagram">
+      <DependentUpon>MyReports.edmx</DependentUpon>
+    </Content>
+    <Content Include="MyReports.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyReports.edmx</DependentUpon>
+      <LastGenOutput>MyReports.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -401,12 +476,17 @@
     <Content Include="Views\Reserva\Edit.cshtml" />
     <Content Include="Views\Reserva\Delete.cshtml" />
     <Content Include="Views\Reserva\Complete.cshtml" />
+    <Content Include="Views\Home\ListaEmbarque.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\ListaDeEmbarque.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

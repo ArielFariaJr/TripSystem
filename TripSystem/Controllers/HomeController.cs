@@ -12,6 +12,18 @@ namespace TripSystem.Controllers
     {
         SystemEntities storeDB = new SystemEntities();
 
+        public ActionResult ListaEmbarque()
+        {
+            using (TripSystemEntities ts = new TripSystemEntities()){
+
+                var result = ts.Excurcaos.ToList();
+
+                return View(result);
+            }            
+        }
+
+
+
          public ActionResult Index()
         {
             // Get most popular albums
