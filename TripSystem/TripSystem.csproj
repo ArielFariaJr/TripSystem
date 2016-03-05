@@ -267,13 +267,25 @@
     <Compile Include="Transportadoras.cs">
       <DependentUpon>MyReports.tt</DependentUpon>
     </Compile>
+    <Compile Include="TripSystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TripSystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Veiculoes.cs">
       <DependentUpon>MyReports.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdminMenuController.cs" />
+    <Compile Include="ViewModels\AdminMenu.cs" />
+    <Compile Include="ViewModels\ListaDeEmbarque.cs" />
     <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-TripSystem-20160207195844.mdf" />
+    <Content Include="App_Data\aspnet-TripSystem-20160207195844_log.ldf">
+      <DependentUpon>aspnet-TripSystem-20160207195844.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\TripSystem.mdf" />
     <Content Include="App_Data\TripSystem_log.ldf">
       <DependentUpon>TripSystem.mdf</DependentUpon>
@@ -477,6 +489,18 @@
     <Content Include="Views\Reserva\Delete.cshtml" />
     <Content Include="Views\Reserva\Complete.cshtml" />
     <Content Include="Views\Home\ListaEmbarque.cshtml" />
+    <Content Include="TripSystemDataSet.xsc">
+      <DependentUpon>TripSystemDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="TripSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TripSystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="TripSystemDataSet.xss">
+      <DependentUpon>TripSystemDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Views\AdminMenu\exibeMenuAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

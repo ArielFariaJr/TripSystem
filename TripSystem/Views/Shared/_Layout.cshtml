@@ -61,17 +61,8 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li><a href="@Url.Content("~/Store/")">Pacotes</a></li>
                         <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+                        <li>@{Html.RenderAction("exibeMenuAdmin", "AdminMenu");}</li>
                         <li>@Html.ActionLink("Sobre a Trip System", "About", "Home")</li>
-                        @if (User.IsInRole("Administrator"))
-                        {
-
-                            <li>@Html.ActionLink("Cadastrar categoria", "Index", "Genero")</li>
-                            <li>@Html.ActionLink("Cadastrar guia", "Index", "Guia")</li>
-                            <li>@Html.ActionLink("Cadastrar transportadora", "Index", "Transportadora")</li>
-                            <li>@Html.ActionLink("Cadastrar veiculo", "Index", "Veiculo")</li>
-                            <li>@Html.ActionLink("Cadastrar pacote", "Index", "Excurcao")</li>
-                            <li>@Html.ActionLink("Lista de embarque", "ListaEmbarque", "Home")</li>
-                        }
                         <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
                     </ul>
                 </nav>
