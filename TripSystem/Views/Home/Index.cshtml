@@ -2,21 +2,41 @@
 @{
     ViewBag.Title = "Trip Tour System";
 }
-<div id="promotion">
-</div>
+<div id="promotion" />
 
-<h3><em>Pacotes mais vendidos</h3>
+<h3>Pacotes mais vendidos</h3>
 
 <ul id="excurcao-list">
+
+    @{int i = 0;}
     @foreach (var excurcao in Model)
     {
-        <li>
-            <a href="@Url.Action("Details", "Store",
+        if (i < 4)
+        {
+            String className;
+            switch (i)
+            {
+                case 0:
+                    className = "firstTrip";
+                    break;
+                case 3:
+                    className = "lastTrip";
+                    break;
+                default:
+                    className = "trip";
+                    break;
+            }
+
+            <li class="@className">
+                <a href="@Url.Action("Details", "Store",
             new { id = excurcao.ID })">
-                <img alt="@excurcao.Titulo" src="@excurcao.ExcurcaoArtUrl" /> 
-                <br /><span>@excurcao.Titulo</span>
-                
-            </a>
-        </li>
+                    <img alt="@excurcao.Titulo" src="@excurcao.ExcurcaoArtUrl" />
+                    <span class="categoria">@excurcao.Genero.Nome</span>
+                    <span class="titulo">@excurcao.Titulo</span>
+                </a>
+            </li>
+            i++;
+        }
     }
+
 </ul>
