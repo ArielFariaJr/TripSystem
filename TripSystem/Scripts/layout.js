@@ -14,35 +14,41 @@ function hideIntranetMenu() {
 
     //Loop thru the menus items do hide and collect to the <LI> colleciton.
     $.each(menuItems, function (key, value) {
-        var li = $("a[href='" + value + "']").parent();
-        var clone = $(li).clone(true)
-        liItems.push(clone);
-        $(li).hide();
+        if ($("a[href='" + value + "']").size() > 0) {
+            var li = $("a[href='" + value + "']").parent();
+            liItems.push(li);
+        }
     });
 
-    //Create a new <LI> to host the new intranet menu.
-    var intranetLi = "<li><a href='javascript:void(0)'>Intranet</a></li>";
-    $("#menu").append(intranetLi);
+    console.log(liItems.length);
+    if (liItems.length > 0) {
 
-    //Create a new UL for the intranet menu
-    var menuParent = $("#menu").parent();
-    var intranetUl = $("<ul id='intranetMenu' />");
-    
+        //Create a new <LI> to host the new intranet menu.
+        var intranetLi = $("<li><a href='javascript:void(0)'>Intranet</a></li>");
+        $("#menu").append(intranetLi);
 
-    //Populate the UL with the LI elements collected before.
-    $.each(liItems, function (key, value) {
-        console.log(key + ": " + $(this).text());
-        var li = $(this);
-        $(intranetUl).append($(this));
-    });
+        //Create a new UL for the intranet menu
+        var menuParent = $("#menu").parent();
+        var intranetUl = $("<ul id='intranetMenu' />");
 
-    $(menuParent).append(intranetUl);
+        //Populate the UL with the LI elements collected before.
+        $.each(liItems, function (key, value) {
+            $(intranetUl).append(this);
+        });
 
-    $(intranetLi).mouseover(function () {
-        $(intranetUl).show();
+        $(menuParent).append(intranetUl);
 
-    }).mouseout(function () {
-        $(intranetUl).hide();
-    });
+        $(intranetLi).mouseenter(function () {
+            $(intranetUl).fadeIn(100);
+        });
 
+        $(intranetUl).mouseenter(function () {
+            $(intranetUl).show();
+
+        }).mouseleave(function () {
+            setTimeout(function () {
+                $(intranetUl).fadeOut(100);
+            }, 200);
+        });
+    }
 }
