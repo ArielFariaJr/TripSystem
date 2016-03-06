@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripSystemModelStoreContainer" CdmEntityContainer="TripSystemEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="TripSystemModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carrinhoes">
+      <EntityTypeMapping TypeName="TripSystemModel.Carrinhoes">
+        <MappingFragment StoreEntitySet="Carrinhoes">
+          <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+          <ScalarProperty Name="CarrinhoId" ColumnName="CarrinhoId" />
+          <ScalarProperty Name="ExcurcaoId" ColumnName="ExcurcaoId" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contatoes">
+      <EntityTypeMapping TypeName="TripSystemModel.Contatoes">
+        <MappingFragment StoreEntitySet="Contatoes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Excurcaos">
+      <EntityTypeMapping TypeName="TripSystemModel.Excurcaos">
+        <MappingFragment StoreEntitySet="Excurcaos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GeneroId" ColumnName="GeneroId" />
+          <ScalarProperty Name="GuiaId" ColumnName="GuiaId" />
+          <ScalarProperty Name="VeicuiloId" ColumnName="VeicuiloId" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="LocalPartida" ColumnName="LocalPartida" />
+          <ScalarProperty Name="DataPartida" ColumnName="DataPartida" />
+          <ScalarProperty Name="DataRetorno" ColumnName="DataRetorno" />
+          <ScalarProperty Name="NumeroPessoas" ColumnName="NumeroPessoas" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="ExcurcaoArtUrl" ColumnName="ExcurcaoArtUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generoes">
+      <EntityTypeMapping TypeName="TripSystemModel.Generoes">
+        <MappingFragment StoreEntitySet="Generoes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descrição" ColumnName="Descrição" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guias">
+      <EntityTypeMapping TypeName="TripSystemModel.Guias">
+        <MappingFragment StoreEntitySet="Guias">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+          <ScalarProperty Name="Rg" ColumnName="Rg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItensOrdems">
+      <EntityTypeMapping TypeName="TripSystemModel.ItensOrdems">
+        <MappingFragment StoreEntitySet="ItensOrdems">
+          <ScalarProperty Name="IdOrdemDetalhe" ColumnName="IdOrdemDetalhe" />
+          <ScalarProperty Name="IdOrdem" ColumnName="IdOrdem" />
+          <ScalarProperty Name="ExcurcaoId" ColumnName="ExcurcaoId" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Ordem_OrdemId" ColumnName="Ordem_OrdemId" />
+          <ScalarProperty Name="Ordem_OrdemItem" ColumnName="Ordem_OrdemItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ordems">
+      <EntityTypeMapping TypeName="TripSystemModel.Ordems">
+        <MappingFragment StoreEntitySet="Ordems">
+          <ScalarProperty Name="OrdemId" ColumnName="OrdemId" />
+          <ScalarProperty Name="OrdemItem" ColumnName="OrdemItem" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="SobreNome" ColumnName="SobreNome" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="TripSystemModel.Reservas">
+        <MappingFragment StoreEntitySet="Reservas">
+          <ScalarProperty Name="OrdemId" ColumnName="OrdemId" />
+          <ScalarProperty Name="passageiroID" ColumnName="passageiroID" />
+          <ScalarProperty Name="ExcurcaoId" ColumnName="ExcurcaoId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="SobreNome" ColumnName="SobreNome" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transportadoras">
+      <EntityTypeMapping TypeName="TripSystemModel.Transportadoras">
+        <MappingFragment StoreEntitySet="Transportadoras">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="IE" ColumnName="IE" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Veiculoes">
+      <EntityTypeMapping TypeName="TripSystemModel.Veiculoes">
+        <MappingFragment StoreEntitySet="Veiculoes">
+          <ScalarProperty Name="VeiculoId" ColumnName="VeiculoId" />
+          <ScalarProperty Name="TransportadoraId" ColumnName="TransportadoraId" />
+          <ScalarProperty Name="MarcaCarro" ColumnName="MarcaCarro" />
+          <ScalarProperty Name="ModeloCarro" ColumnName="ModeloCarro" />
+          <ScalarProperty Name="QntAssentos" ColumnName="QntAssentos" />
+          <ScalarProperty Name="ValorDiaria" ColumnName="ValorDiaria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

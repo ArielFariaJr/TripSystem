@@ -12,7 +12,7 @@ namespace TripSystem.Models
         [ScaffoldColumn(false)]
         public int VeiculoId { get; set; }
         public int TransportadoraId { get; set; }
-        
+
 
         [Required(ErrorMessage = "A marca do carro é obrigatória")]
         [StringLength(30)]
@@ -30,7 +30,7 @@ namespace TripSystem.Models
 
         [Required(ErrorMessage = "O valor da diária é obrigatório")]
         [DisplayName("Valor da diaria")]
-        public double ValorDiaria{ get; set; }
+        public double ValorDiaria { get; set; }
 
         public virtual Transportadora Transportadora { get; set; }
 

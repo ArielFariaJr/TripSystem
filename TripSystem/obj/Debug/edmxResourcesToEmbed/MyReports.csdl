@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TripSystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carrinhoes">
+    <Key>
+      <PropertyRef Name="RecordId" />
+    </Key>
+    <Property Name="RecordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarrinhoId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExcurcaoId" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_Carrinhoes_dbo_Excurcaos_ExcurcaoId" FromRole="Carrinhoes" ToRole="Excurcaos" />
+  </EntityType>
+  <EntityType Name="Contatoes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Assunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mensagem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Excurcaos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GeneroId" Type="Int32" Nullable="false" />
+    <Property Name="GuiaId" Type="Int32" Nullable="false" />
+    <Property Name="VeicuiloId" Type="Int32" Nullable="false" />
+    <Property Name="Titulo" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LocalPartida" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataPartida" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataRetorno" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NumeroPessoas" Type="Int32" Nullable="false" />
+    <Property Name="Preco" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ExcurcaoArtUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carrinhoes" Relationship="Self.FK_dbo_Carrinhoes_dbo_Excurcaos_ExcurcaoId" FromRole="Excurcaos" ToRole="Carrinhoes" />
+    <NavigationProperty Name="Generoes" Relationship="Self.FK_dbo_Excurcaos_dbo_Generoes_GeneroId" FromRole="Excurcaos" ToRole="Generoes" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_dbo_Excurcaos_dbo_Guias_GuiaId" FromRole="Excurcaos" ToRole="Guias" />
+    <NavigationProperty Name="Veiculoes" Relationship="Self.FK_dbo_Excurcaos_dbo_Veiculoes_VeicuiloId" FromRole="Excurcaos" ToRole="Veiculoes" />
+    <NavigationProperty Name="ItensOrdems" Relationship="Self.FK_dbo_ItensOrdems_dbo_Excurcaos_ExcurcaoId" FromRole="Excurcaos" ToRole="ItensOrdems" />
+    <NavigationProperty Name="Reservas" Relationship="Self.FK_dbo_Reservas_dbo_Excurcaos_ExcurcaoId" FromRole="Excurcaos" ToRole="Reservas" />
+  </EntityType>
+  <EntityType Name="Generoes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Descrição" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_Excurcaos_dbo_Generoes_GeneroId" FromRole="Generoes" ToRole="Excurcaos" />
+  </EntityType>
+  <EntityType Name="Guias">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Idade" Type="Int32" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cpf" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rg" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_Excurcaos_dbo_Guias_GuiaId" FromRole="Guias" ToRole="Excurcaos" />
+  </EntityType>
+  <EntityType Name="ItensOrdems">
+    <Key>
+      <PropertyRef Name="IdOrdemDetalhe" />
+    </Key>
+    <Property Name="IdOrdemDetalhe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrdem" Type="Int32" Nullable="false" />
+    <Property Name="ExcurcaoId" Type="Int32" Nullable="false" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+    <Property Name="PrecoUnitario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ordem_OrdemId" Type="Int32" />
+    <Property Name="Ordem_OrdemItem" Type="Int32" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_ItensOrdems_dbo_Excurcaos_ExcurcaoId" FromRole="ItensOrdems" ToRole="Excurcaos" />
+    <NavigationProperty Name="Ordems" Relationship="Self.FK_dbo_ItensOrdems_dbo_Ordems_Ordem_OrdemId_Ordem_OrdemItem" FromRole="ItensOrdems" ToRole="Ordems" />
+  </EntityType>
+  <EntityType Name="Ordems">
+    <Key>
+      <PropertyRef Name="OrdemId" />
+      <PropertyRef Name="OrdemItem" />
+    </Key>
+    <Property Name="OrdemId" Type="Int32" Nullable="false" />
+    <Property Name="OrdemItem" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SobreNome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Idade" Type="Int32" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="ItensOrdems" Relationship="Self.FK_dbo_ItensOrdems_dbo_Ordems_Ordem_OrdemId_Ordem_OrdemItem" FromRole="Ordems" ToRole="ItensOrdems" />
+  </EntityType>
+  <EntityType Name="Reservas">
+    <Key>
+      <PropertyRef Name="OrdemId" />
+      <PropertyRef Name="passageiroID" />
+    </Key>
+    <Property Name="OrdemId" Type="Int32" Nullable="false" />
+    <Property Name="passageiroID" Type="Int32" Nullable="false" />
+    <Property Name="ExcurcaoId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SobreNome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Idade" Type="Int32" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrecoUnitario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SessionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_Reservas_dbo_Excurcaos_ExcurcaoId" FromRole="Reservas" ToRole="Excurcaos" />
+  </EntityType>
+  <EntityType Name="Transportadoras">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CNPJ" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rua" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+    <Property Name="Bairro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Veiculoes" Relationship="Self.FK_dbo_Veiculoes_dbo_Transportadoras_TransportadoraId" FromRole="Transportadoras" ToRole="Veiculoes" />
+  </EntityType>
+  <EntityType Name="Veiculoes">
+    <Key>
+      <PropertyRef Name="VeiculoId" />
+    </Key>
+    <Property Name="VeiculoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransportadoraId" Type="Int32" Nullable="false" />
+    <Property Name="MarcaCarro" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModeloCarro" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QntAssentos" Type="Int32" Nullable="false" />
+    <Property Name="ValorDiaria" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Excurcaos" Relationship="Self.FK_dbo_Excurcaos_dbo_Veiculoes_VeicuiloId" FromRole="Veiculoes" ToRole="Excurcaos" />
+    <NavigationProperty Name="Transportadoras" Relationship="Self.FK_dbo_Veiculoes_dbo_Transportadoras_TransportadoraId" FromRole="Veiculoes" ToRole="Transportadoras" />
+  </EntityType>
+  <Association Name="FK_dbo_Carrinhoes_dbo_Excurcaos_ExcurcaoId">
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Carrinhoes" Type="Self.Carrinhoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Excurcaos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Carrinhoes">
+        <PropertyRef Name="ExcurcaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Excurcaos_dbo_Generoes_GeneroId">
+    <End Role="Generoes" Type="Self.Generoes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Generoes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Excurcaos">
+        <PropertyRef Name="GeneroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Excurcaos_dbo_Guias_GuiaId">
+    <End Role="Guias" Type="Self.Guias" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guias">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Excurcaos">
+        <PropertyRef Name="GuiaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Excurcaos_dbo_Veiculoes_VeicuiloId">
+    <End Role="Veiculoes" Type="Self.Veiculoes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veiculoes">
+        <PropertyRef Name="VeiculoId" />
+      </Principal>
+      <Dependent Role="Excurcaos">
+        <PropertyRef Name="VeicuiloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ItensOrdems_dbo_Excurcaos_ExcurcaoId">
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ItensOrdems" Type="Self.ItensOrdems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Excurcaos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItensOrdems">
+        <PropertyRef Name="ExcurcaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Reservas_dbo_Excurcaos_ExcurcaoId">
+    <End Role="Excurcaos" Type="Self.Excurcaos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Excurcaos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reservas">
+        <PropertyRef Name="ExcurcaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ItensOrdems_dbo_Ordems_Ordem_OrdemId_Ordem_OrdemItem">
+    <End Role="Ordems" Type="Self.Ordems" Multiplicity="0..1" />
+    <End Role="ItensOrdems" Type="Self.ItensOrdems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ordems">
+        <PropertyRef Name="OrdemId" />
+        <PropertyRef Name="OrdemItem" />
+      </Principal>
+      <Dependent Role="ItensOrdems">
+        <PropertyRef Name="Ordem_OrdemId" />
+        <PropertyRef Name="Ordem_OrdemItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Veiculoes_dbo_Transportadoras_TransportadoraId">
+    <End Role="Transportadoras" Type="Self.Transportadoras" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Veiculoes" Type="Self.Veiculoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transportadoras">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Veiculoes">
+        <PropertyRef Name="TransportadoraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TripSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Carrinhoes" EntityType="Self.Carrinhoes" />
+    <EntitySet Name="Contatoes" EntityType="Self.Contatoes" />
+    <EntitySet Name="Excurcaos" EntityType="Self.Excurcaos" />
+    <EntitySet Name="Generoes" EntityType="Self.Generoes" />
+    <EntitySet Name="Guias" EntityType="Self.Guias" />
+    <EntitySet Name="ItensOrdems" EntityType="Self.ItensOrdems" />
+    <EntitySet Name="Ordems" EntityType="Self.Ordems" />
+    <EntitySet Name="Reservas" EntityType="Self.Reservas" />
+    <EntitySet Name="Transportadoras" EntityType="Self.Transportadoras" />
+    <EntitySet Name="Veiculoes" EntityType="Self.Veiculoes" />
+    <AssociationSet Name="FK_dbo_Carrinhoes_dbo_Excurcaos_ExcurcaoId" Association="Self.FK_dbo_Carrinhoes_dbo_Excurcaos_ExcurcaoId">
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+      <End Role="Carrinhoes" EntitySet="Carrinhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Excurcaos_dbo_Generoes_GeneroId" Association="Self.FK_dbo_Excurcaos_dbo_Generoes_GeneroId">
+      <End Role="Generoes" EntitySet="Generoes" />
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Excurcaos_dbo_Guias_GuiaId" Association="Self.FK_dbo_Excurcaos_dbo_Guias_GuiaId">
+      <End Role="Guias" EntitySet="Guias" />
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Excurcaos_dbo_Veiculoes_VeicuiloId" Association="Self.FK_dbo_Excurcaos_dbo_Veiculoes_VeicuiloId">
+      <End Role="Veiculoes" EntitySet="Veiculoes" />
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ItensOrdems_dbo_Excurcaos_ExcurcaoId" Association="Self.FK_dbo_ItensOrdems_dbo_Excurcaos_ExcurcaoId">
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+      <End Role="ItensOrdems" EntitySet="ItensOrdems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Reservas_dbo_Excurcaos_ExcurcaoId" Association="Self.FK_dbo_Reservas_dbo_Excurcaos_ExcurcaoId">
+      <End Role="Excurcaos" EntitySet="Excurcaos" />
+      <End Role="Reservas" EntitySet="Reservas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ItensOrdems_dbo_Ordems_Ordem_OrdemId_Ordem_OrdemItem" Association="Self.FK_dbo_ItensOrdems_dbo_Ordems_Ordem_OrdemId_Ordem_OrdemItem">
+      <End Role="Ordems" EntitySet="Ordems" />
+      <End Role="ItensOrdems" EntitySet="ItensOrdems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Veiculoes_dbo_Transportadoras_TransportadoraId" Association="Self.FK_dbo_Veiculoes_dbo_Transportadoras_TransportadoraId">
+      <End Role="Transportadoras" EntitySet="Transportadoras" />
+      <End Role="Veiculoes" EntitySet="Veiculoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
