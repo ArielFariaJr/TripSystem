@@ -10,30 +10,42 @@ body {
 
 .main-content {
     background-image: none!important;
-    /*border: 1px solid red;*/
     padding: 0px!important;
 }
+.content-wrapper {
+    position: relative;
+}
 
-/*Ajuste do menu principal*/
-.float-left {
+/*Ajustes da logo*/
+.logo_home {
     position: absolute;
     z-index:10;
-<<<<<<< HEAD
     display:block;
-    margin-left: 15px;
-    margin-top: 40px;
+    top: 90px;
+    left: 25px;
 }
 
-.float-left img {
+.logo_home img {
     height: 60%;
-    width: 60%;
- }
-
-=======
-    /*background-color: yellow;*/
-    display:none;
+    width: 55%;
 }
->>>>>>> 149f28f1efe28f2194105a3ec4a7069e6122792b
+
+.logo_content {
+    position: absolute;
+    z-index:10;
+    display:block;
+    top: 10px;
+    left: 5px;
+    width: 105px
+}
+
+ .logo_content img {
+    width: 100%;
+}
+
+
+
+/*Ajuste do menu principal*/
 .float-right {
     background-color: #F18230;
     position: relative;
@@ -46,6 +58,7 @@ body {
 .float-right #menu {
     float: left;
     margin-top: 12px;
+    margin-left: 100px
 }
 
 .float-right #menu li a {
@@ -56,22 +69,36 @@ body {
     font-size: 1.2em;
 }
 
+/*Area de login*/
 .float-right #login {
     float: right;
-    margin-right: 5px;
-    margin-top: 16px;
+    margin-right: 10px;
+    margin-top: 12px;
+    background-color: #F39956;
+    padding: 0px;
+    color: white;
+    padding:5px;
+}
+
+.float-right #login ul {
+    padding: 0px!important;
+    margin: 0px!important;
+}
+
+.float-right #login a {
+    color: white;
+    padding: 5px;
+    margin: 0px 5px 0px 0px;
+    border-radius: 2px;
+    background-color: transparent;
 }
 
 /*Criação do menu da intranet*/
 #intranetMenu {
     background-color: #F18230;
-<<<<<<< HEAD
     display:none;
-=======
-    display:block;
->>>>>>> 149f28f1efe28f2194105a3ec4a7069e6122792b
     position: absolute;
-    left: 492px;
+    left: 593px;
     top: 35px;
     z-index:15;
 }
@@ -87,22 +114,23 @@ body {
     padding: 10px;
 }
 
-<<<<<<< HEAD
-/*Promotion*/
+/*HOME: Ajustes do título: 'Mais vendidos'*/
 #promotion h3 {
     position: absolute;
-    z-index: 10;
-    left:58%;
-    background-color: #696892;
-    font-size: 3em;
-    z-index:10;
-    font-family: 'Open Sans Condensed', sans-serif;
+    z-index: 8;
+    padding: 10px;
+    top:-45px;
+    right: 3%;
     color: white;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    background-color: #696892;
 }
 
-=======
->>>>>>> 149f28f1efe28f2194105a3ec4a7069e6122792b
-/* Ajuste da lista de excurções */
+/* HOME: Ajuste da lista de excurções
+   na exibição dos 'mais vendidos'*/
 #excurcao-list, #intranetMenu {
     list-style: none;
     padding: 0px;
@@ -140,7 +168,8 @@ excurcao-list li {
     margin-bottom: 15px;
 }
 
-/*titulos e categorias das excursões*/
+/*HOME: titulos e categorias das excursões
+  na exibição dos 'mais vendidos'*/
 #excurcao-list li a span {
     position: absolute;
     font-family: 'Oswald', sans-serif;
@@ -163,7 +192,6 @@ excurcao-list li {
     font-size: 2em;
 }
 
-
 #excurcao-list .firstTrip a .categoria {
     font-size: 2.5em;
 }
@@ -171,4 +199,3 @@ excurcao-list li {
 #excurcao-list .firstTrip a .titulo {
     font-size: 4.5em;
 }
-

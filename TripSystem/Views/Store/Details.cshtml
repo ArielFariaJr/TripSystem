@@ -1,19 +1,23 @@
-﻿@model TripSystem.Models.Excurcao
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Detail.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.Models.Excurcao
 
 @{
     ViewBag.Title = "Excurcao - " + Model.Titulo;
 }
 
-<h2>@Model.Titulo</h2>
+<h2 class="title">@Model.Titulo</h2>
 
-<p>
+<p class="excursao">
     @{
         int position = Model.ExcurcaoArtUrl.LastIndexOf('/');
         string image = Model.ExcurcaoArtUrl.Substring(position + 1);
 
     }
 
-    <img alt="@Model.Titulo" src="~/Content/images/@image" />
+    <img alt="@Model.Titulo" src="@Model.ExcurcaoArtUrl" />
 </p>
 
 <div id="album-details">
@@ -44,20 +48,21 @@
 
 </div>
 
-@using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="carrinho">
+    @using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <em>Quantidade de pessoas</em>
-        <div class="editor-label">
-            @Html.EditorFor(model => model.Quantidade)
-            @Html.ValidationMessageFor(model => model.Quantidade)
-        </div>
-        <p>
-            <input type="submit" value="Adicionar ao carrinho" />
-
-        </p>
-    </fieldset>
-}
+        <fieldset>
+            <em>Quantidade de pessoas</em>
+            <div class="editor-label">
+                @Html.EditorFor(model => model.Quantidade)
+                @Html.ValidationMessageFor(model => model.Quantidade)
+            </div>
+            <p>
+                <input type="submit" value="Adicionar ao carrinho" />
+            </p>
+        </fieldset>
+    }
+</div>

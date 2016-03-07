@@ -1,0 +1,56 @@
+﻿
+/**Laytou changes for store*/
+.main-content {
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    z-index: 8;
+    padding: 10px;
+    top:-68px;
+    right: 3%;
+    color: white;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6em;
+    background-color: #696892;
+    border-right: 3px solid #ABAAC1;
+    border-left: 3px solid #ABAAC1;
+    border-bottom: 3px solid #ABAAC1;
+
+}
+
+.excursao {
+    border: 3px solid #ABAAC1;
+}
+
+.excursao img {
+    width: 100%;
+}
+#album-details {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    background-color: white;
+    border: 3px solid #ABAAC1;
+    padding: 20px;
+    width: 50%;
+}
+.carrinho {
+    position: absolute;
+    top: 60%;
+    left: 62%;
+    background-color: white;
+    border: 3px solid #ABAAC1;
+    padding: 20px;
+    width: 29%;
+}
+.carrinho fieldset p {
+    padding: 0px!important;
+    margin: 0px;
+}
+.carrinho input {
+    width: 50px;
+}

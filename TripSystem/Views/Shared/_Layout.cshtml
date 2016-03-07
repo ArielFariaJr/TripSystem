@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Trip System</title>
+    @RenderSection("styles", false);
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Layout.css")" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -53,7 +54,7 @@
 <body>
     <header>
         <div class="content-wrapper">
-            <div class="float-left">
+            <div class="float-left logo_home" id="logo">
                 <img src="~/Content/images/tripsystemlogo_run.png" />
             </div>
             <div class="float-right">
