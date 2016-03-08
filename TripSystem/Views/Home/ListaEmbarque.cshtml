@@ -1,79 +1,71 @@
-﻿@model List<TripSystem.ViewModels.ListaDeEmbarque>
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model List<TripSystem.ViewModels.ListaDeEmbarque>
 
 @{
     ViewBag.Title = "ListaEmbarque";
 }
 
-<h2>Lista de Embarque</h2>
+<h3 class="page_title">Lista de Embarque</h3>
 
-<table>
-    <tr><th>
-            Excursão
-        </th>
-        <th>
-            Local de partida 
-        </th>
-        <th>
-            Data de partida
-        </th>
-        <th>
-            Data de retorno
-        </th>
-        <th>
-            Nome do passageiro
-        </th>
-        <th>
-            Sobrenome
-        </th>
-        <th>
-            Telefone
-        </th>
-        <th>
-            Idade
-        </th>
-        <th>
-            Grupo
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
+<p style="padding:30px" />
+<table class="grid">
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocalPartida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataPartida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataRetorno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SobreNome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Idade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrdemId)
-        </td>
+        <th>Excursão</th>
+        <th>Local de partida</th>
+        <th>Parte</th>
+        <th>Retorna</th>
+        <th>Passageiro</th>
+        <th>Telefone</th>
+        <th>Idade</th>
     </tr>
-}
 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRetorno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome) 
+                @Html.DisplayFor(modelItem => item.SobreNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+         </tr>
+    }
 </table>
 
-<div style="padding:10px; border:1px solid black">
-    <div><a href="@Url.Action("Report",new {id= "PDF"})"> Gerar relatório em PDF</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Excel"})"> Gerar relatório em Excel</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Word"})"> Gerar relatório em Word</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Image"})"> Gerar relatório em Image</a></div>
+<div class="generate-report">
+    <a href="@Url.Action("Report",new {id= "PDF"})">
+        <img src="~/Content/images/pdf.svg" />
+        <span>relatório em PDF</span>
+    </a>
+    <a href="@Url.Action("Report",new {id= "Excel"})">
+        <img src="~/Content/images/excel.svg" />
+        <span>Gerar relatório em Excel</span>
+    </a>
+    <a href="@Url.Action("Report",new {id= "Word"})">
+        <img src="~/Content/images/word.svg" />
+        <span>Gerar relatório em Word</span>
+    </a>
+    <a href="@Url.Action("Report",new {id= "Image"})">
+        <img src="~/Content/images/image.svg" />
+        <span>Gerar relatório em Image</span>
+    </a>
 </div>

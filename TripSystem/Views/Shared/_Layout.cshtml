@@ -66,9 +66,9 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li><a href="@Url.Content("~/Store/")">Pacotes</a></li>
                         <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
-                        <li>@{Html.RenderAction("exibeMenuAdmin", "AdminMenu");}</li>
                         <li>@Html.ActionLink("Sobre a Trip System", "About", "Home")</li>
                         <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                        <li>@{Html.RenderAction("exibeMenuAdmin", "AdminMenu");}</li>
                     </ul>
                 </nav>
             </div>

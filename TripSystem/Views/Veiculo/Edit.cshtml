@@ -1,68 +1,69 @@
-﻿@model TripSystem.Models.Veiculo
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.Models.Veiculo
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h3 class="page_title">Editar Veículo</h3>
+<p style="padding:30px" />
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Veiculo</legend>
+        <fieldset>
+            <legend>Veiculo</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TransportadoraId, "Transportadora")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("TransportadoraId", String.Empty)
+                @Html.ValidationMessageFor(model => model.TransportadoraId)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MarcaCarro)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MarcaCarro)
+                @Html.ValidationMessageFor(model => model.MarcaCarro)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ModeloCarro)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ModeloCarro)
+                @Html.ValidationMessageFor(model => model.ModeloCarro)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.QntAssentos)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.QntAssentos)
+                @Html.ValidationMessageFor(model => model.QntAssentos)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ValorDiaria)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ValorDiaria)
+                @Html.ValidationMessageFor(model => model.ValorDiaria)
+            </div>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+    <div class="back-to-list">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TransportadoraId, "Transportadora")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("TransportadoraId", String.Empty)
-            @Html.ValidationMessageFor(model => model.TransportadoraId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MarcaCarro)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.MarcaCarro)
-            @Html.ValidationMessageFor(model => model.MarcaCarro)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ModeloCarro)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ModeloCarro)
-            @Html.ValidationMessageFor(model => model.ModeloCarro)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.QntAssentos)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.QntAssentos)
-            @Html.ValidationMessageFor(model => model.QntAssentos)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ValorDiaria)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ValorDiaria)
-            @Html.ValidationMessageFor(model => model.ValorDiaria)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

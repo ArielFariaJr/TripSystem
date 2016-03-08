@@ -36,3 +36,33 @@
     right: 0px;
     background-color: #ABAAC1;
 }
+
+/*Finalizando a compra*/
+.finish {
+    margin-left: 0px;
+    text-align: center;
+}
+.finish p {
+    font-size: 3em;
+    color: white;
+    margin:0px;
+}
+
+.finish span {
+    display: block;
+    text-align: center;
+    font-size: 1.6em;
+    color: white;
+}
+
+.checked {
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin-top:10px;
+    left: 50%;
+    position: relative;
+    margin-left: -100px;
+    background: url("../Content/images/sign-check.svg") no-repeat top left;
+    background-size: contain;
+}

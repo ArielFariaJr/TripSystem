@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 
-    hideIntranetMenu();
+    adjustIntranetMenu();
 
 });
 
@@ -10,65 +10,23 @@ $(document).ready(function () {
 * Method which strips out the pre-built menu and 
 * re-build it in a separate intrant menu.
 */
-function hideIntranetMenu() {
+function adjustIntranetMenu() {
 
-    //Small fix to remove empty <li> elements from menu.
-    $("#menu").find("li").get(3).remove();
+    $("#menu").find("li").get(5).remove();
 
-    //Set up the arrays: one for the menus to be selected and initialize the <LI> collection.
-    var menuItems = ["/Genero", "/Guia", "/Transportadora", "/Veiculo", "/Excurcao", "/Home/ListaEmbarque"];
-    var liItems = [];
+    var menuParent = $("#menu").parent();
+    $(menuParent).append($("#intranetMenu"));
 
-    //Loop thru the menus items do hide and collect to the <LI> colleciton.
-    $.each(menuItems, function (key, value) {
-        if ($("a[href='" + value + "']").size() > 0) {
-            var li = $("a[href='" + value + "']").parent();
-            liItems.push(li);
-        }
+    $("#intranet").mouseenter(function () {
+        $("#intranetMenu").fadeIn(100);
     });
 
-    if (liItems.length > 0) {
+    $("#intranetMenu").mouseenter(function () {
+        $("#intranetMenu").show();
 
-        //Create a new <LI> to host the new intranet menu.
-        var intranetLi = $("<li><a href='javascript:void(0)'>Intranet</a></li>");
-        $("#menu").append(intranetLi);
-
-        //Create a new UL for the intranet menu
-        var menuParent = $("#menu").parent();
-        var intranetUl = $("<ul id='intranetMenu' />");
-
-        //Populate the UL with the LI elements collected before.
-        $.each(liItems, function (key, value) {
-            $(intranetUl).append(this);
-        });
-
-        $(menuParent).append(intranetUl);
-
-        $(intranetLi).mouseenter(function () {
-            $(intranetUl).fadeIn(100);
-        });
-
-        $(intranetUl).mouseenter(function () {
-            $(intranetUl).show();
-
-        }).mouseleave(function () {
-            setTimeout(function () {
-                $(intranetUl).fadeOut(100);
-            }, 200);
-        });
-    }
-}
-
-/** UTILS **/
-var Utils = {
-    isHome: function (href) {
-        var slashes = (href.match(/\//g) || []).length;
-        var page = href.substring(href.lastIndexOf("/")+1);
-
-        if (slashes == 3 && page == "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    }).mouseleave(function () {
+        setTimeout(function () {
+            $("#intranetMenu").fadeOut(100);
+        }, 200);
+    });
 }

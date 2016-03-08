@@ -1,11 +1,16 @@
-﻿.main-content {
+﻿
+/*Mainpge adjustments*/
+.main-content {
     position: relative;
 }
 
+/*Main table grid for all views*/
 .grid {
     background-color: #E2E2E2;
     border: 3px solid #ABAAC1;
     width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0px;
 }
 
 .grid td, .grid th {
@@ -17,23 +22,34 @@
     background-color: #D2D2D2;
 }
 
-.create-new {
-    position: absolute;
+/*Edition buttons*/
+.create-new, .checkout {
     right: 0px;
     background-color: #E2E2E2;
     border: 1px solid #ABAAC1;
     padding: 8px 14px 8px 8px;
-    
+    float: right;
+    margin-left: 10px;
 }
-.create-new a {
-    background: url("../Content/images/add.svg") no-repeat top left;
-    background-size: contain;
+
+.create-new a, .checkout a {
     text-decoration: none;
     display: block;
     padding-left: 22px;
     padding: 5px 0px 5px 35px;
 }
 
+.create-new a {
+    background: url("../Content/images/add.svg") no-repeat top left;
+    background-size: contain;
+}
+
+.checkout a {
+    background: url("../Content/images/mastercard.svg") no-repeat top left;
+    background-size: contain;
+}
+
+/* in-form edition buttons*/
 .edit, .delete, .details {
     display: block;
     height:22px;
@@ -55,4 +71,125 @@
 .details {
     background: url("../Content/images/document.svg") no-repeat top left;
     background-size: contain;
+}
+
+/*Detail viewer*/
+#display-detail {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    z-index: 15;
+    width: 80%;
+    margin-left: -40%;
+    display: none;
+}
+
+#display-detail .close {
+    padding: 7px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background-color: #F18230;
+    color: white;
+    text-decoration: none;
+}
+
+.display-image-preview {
+    width: 100px;
+}
+
+/*Overlay*/
+.overlay {
+    background-color: #484763;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+    opacity: 0.6;
+    display: none;
+}
+
+/*Forms*/
+.form {
+    margin-left: 150px;
+    width: 80%;
+    background-color: #E2E2E2;
+    border: 3px solid #ABAAC1;
+    padding: 20px 20px 0px 20px;
+    float: left;
+}
+
+.back-to-list {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    background: url("../Content/images/previous.svg") no-repeat top left;
+    background-size: contain;
+    display: block;
+    padding: 6px 6px 6px 35px;
+}
+.back-to-list a {
+    text-decoration: none;
+}
+
+/*Lista de embarque*/
+.generate-report {
+    width: 100%;
+    padding: 0px;
+    float: left;
+    margin-top: 20px;
+}
+
+.generate-report a {
+    display: block;
+    float: left;
+    text-decoration: none;
+    padding: 10px 12px 6px 10px;
+    background-color: #D2D2D2;
+    margin-right: 15px;
+    border: 1px solid #807EA3;
+}
+
+.generate-report a span {
+    display: block;
+    float: right;
+    margin-top: 5px;
+    margin-left: 8px;
+}
+
+/*Login screen*/
+#socialLoginForm, #externalLogins {
+    display: none;
+}
+
+.form #loginForm {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.logged-in-as {
+    position: absolute;
+    top: 90px;
+    right: 30px;
+}
+
+.logged-in-as span {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.logged-in-as .icon {
+    height: 100px;
+    width: 100px;
+    display: block;
+    background: url("../Content/images/male_user.svg") no-repeat top left;
+    background-size: contain;
+    margin-bottom: 5px;
+    border: 1px solid #ABAAC1;
+}
+
+.form fieldset {
+    margin-bottom: 20px;
 }

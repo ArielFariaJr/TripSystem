@@ -1,6 +1,7 @@
 ﻿@section Styles {
     <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
 }
+@Scripts.Render("~/Scripts/intranet.js")
 
 @model IEnumerable<TripSystem.Models.Excurcao>
 
@@ -64,3 +65,5 @@
         </tr>
     }
 </table>
+
+<div id="display-detail"></div>
