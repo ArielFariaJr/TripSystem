@@ -1,23 +1,25 @@
-﻿@model IEnumerable<TripSystem.Models.Genero>
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model IEnumerable<TripSystem.Models.Genero>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3 class="page_title">Categorias</h3>
 
-<p>
+<p class="create-new">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+
+<p style="padding:30px" />
+<table class="grid">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descrição)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+        <th>@Html.DisplayNameFor(model => model.Descrição)</th>
+        <th width="15%"></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -29,9 +31,8 @@
             @Html.DisplayFor(modelItem => item.Descrição)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink(" ", "Edit", new { id=item.ID }, new { @class = "edit" })
+            @Html.ActionLink(" ", "Delete", new { id=item.ID }, new { @class = "delete" })
         </td>
     </tr>
 }

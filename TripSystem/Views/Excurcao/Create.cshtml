@@ -1,108 +1,105 @@
-﻿@model TripSystem.Models.Excurcao
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.Models.Excurcao
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h3 class="page_title">Editar Pacote</h3>
+<p style="padding:30px" />
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Excurcao</legend>
+        <fieldset>
+            <legend>Excurcao</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.GeneroId, "Genero")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("GeneroId", String.Empty)
+                @Html.ValidationMessageFor(model => model.GeneroId)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.GuiaId, "Guia")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("GuiaId", String.Empty)
+                @Html.ValidationMessageFor(model => model.GuiaId)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeicuiloId, "Veiculo")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("VeicuiloId", String.Empty)
+                @Html.ValidationMessageFor(model => model.VeicuiloId)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Titulo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Titulo)
+                @Html.ValidationMessageFor(model => model.Titulo)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LocalPartida)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LocalPartida)
+                @Html.ValidationMessageFor(model => model.LocalPartida)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DataPartida)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataPartida)
+                @Html.ValidationMessageFor(model => model.DataPartida)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DataRetorno)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataRetorno)
+                @Html.ValidationMessageFor(model => model.DataRetorno)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NumeroPessoas)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.NumeroPessoas)
+                @Html.ValidationMessageFor(model => model.NumeroPessoas)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Preco)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Preco)
+                @Html.ValidationMessageFor(model => model.Preco)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ExcurcaoArtUrl)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ExcurcaoArtUrl)
+                @Html.ValidationMessageFor(model => model.ExcurcaoArtUrl)
+            </div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div class="back-to-list">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GeneroId, "Genero")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("GeneroId", String.Empty)
-            @Html.ValidationMessageFor(model => model.GeneroId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GuiaId, "Guia")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("GuiaId", String.Empty)
-            @Html.ValidationMessageFor(model => model.GuiaId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.VeicuiloId, "Veiculo")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("VeicuiloId", String.Empty)
-            @Html.ValidationMessageFor(model => model.VeicuiloId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Titulo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Titulo)
-            @Html.ValidationMessageFor(model => model.Titulo)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LocalPartida)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LocalPartida)
-            @Html.ValidationMessageFor(model => model.LocalPartida)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DataPartida)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DataPartida)
-            @Html.ValidationMessageFor(model => model.DataPartida)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DataRetorno)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DataRetorno)
-            @Html.ValidationMessageFor(model => model.DataRetorno)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NumeroPessoas)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NumeroPessoas)
-            @Html.ValidationMessageFor(model => model.NumeroPessoas)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Preco)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Preco)
-            @Html.ValidationMessageFor(model => model.Preco)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ExcurcaoArtUrl)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ExcurcaoArtUrl)
-            @Html.ValidationMessageFor(model => model.ExcurcaoArtUrl)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

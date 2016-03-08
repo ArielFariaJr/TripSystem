@@ -1,13 +1,22 @@
-﻿@model int
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ShoppingCart.css")" rel="stylesheet" type="text/css" />
+}
+
+@model int
 
 @{
     ViewBag.Title = "Reserva cocluida";
 }
 
-<h2>Compra finalizada</h2>
+<h3 class="page_title">Compra finalizada</h3>
+<p style="padding:30px" />
 
-<p>Obrigado pela compra! O numero da sua ordem é: @Model</p>
+<div class="finish">
+    
+    <p>Obrigado pela compra!</p>
+    <span>Seu numero da sua ordem é: <strong>@Model</strong></span>
+    
+    <span class="checked"></span>
 
-<p>
-    @Html.ActionLink("store", "Index", "Home")
-</p>
+</div>

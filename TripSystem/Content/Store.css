@@ -1,0 +1,81 @@
+﻿
+/**Laytou changes for store*/
+.main-content {
+    position: relative;
+}
+
+/*Hack to set the height of the body: will be used by JQuery*/
+#layout-fix {
+    height: 200px;
+    width: 200px;
+}
+
+/*Adjust the menu*/
+.category-title {
+    position: absolute;
+    top: -30px;
+    left: 150px;
+    background-color: #696892;
+    color: white;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    padding: 10px;
+}
+
+.category-list {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    list-style: none;
+    padding: 0px;
+}
+
+.category-list li {
+    display: block;
+    background-color: #807EA3;
+    padding: 10px;
+    margin-bottom: 5px;
+    min-width: 200px;
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+}
+
+/*Trip panel*/
+#list-trips {
+    position: absolute;
+    top: 64px;
+    left: 370px;
+    min-height:75%;
+    width: 54%;
+    padding: 0px 20px 20px 20px;
+}
+
+#list-trips .trip {
+    border: 5px solid #ABAAC1;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 200px;
+    background-size: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#list-trips .trip .trip-title {
+    color: white;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    padding: 10px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    background-color: #696892;
+    text-decoration: none;
+}

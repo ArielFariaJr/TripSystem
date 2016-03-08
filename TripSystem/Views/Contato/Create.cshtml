@@ -39,13 +39,11 @@
             @Html.LabelFor(model => model.Mensagem)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Mensagem)
+            @Html.TextAreaFor(model => model.Mensagem)
             @Html.ValidationMessageFor(model => model.Mensagem)
         </div>
+        <input type="submit" value="Enviar" class="submit"/>
 
-        <p>
-            <input type="submit" value="Enviar" />
-        </p>
     </fieldset>
 }
 

@@ -1,32 +1,41 @@
-﻿@model TripSystem.Models.LocalPasswordModel
+﻿
+@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.Models.LocalPasswordModel
 @{
     ViewBag.Title = "Manage Account";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h3 class="page_title">@ViewBag.Title</h3>
 </hgroup>
 
-<p class="message-success">@ViewBag.StatusMessage</p>
+<p style="padding:30px" />
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<div class="form">
+    <p class="message-success">@ViewBag.StatusMessage</p>
+   
+    <p class="logged-in-as">
+        <span class="icon"></span>
+        <span>Olá <strong>@User.Identity.Name</strong></span>
+    </p>
 
-@if (ViewBag.HasLocalPassword)
-{
-    @Html.Partial("_ChangePasswordPartial")
-}
-else
-{ 
-    @Html.Partial("_SetPasswordPartial")
-}
-
-<section id="externalLogins">
-    @Html.Action("RemoveExternalLogins")
-
-    <h3>Add an external login</h3>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
-
+        @if (ViewBag.HasLocalPassword)
+    {
+        @Html.Partial("_ChangePasswordPartial")
+    }
+    else
+    {
+        @Html.Partial("_SetPasswordPartial")
+    }
+    <section id="externalLogins">
+        @Html.Action("RemoveExternalLogins")
+        <h3>Add an external login</h3>
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

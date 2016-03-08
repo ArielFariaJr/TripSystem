@@ -1,0 +1,13 @@
+﻿
+.main-content {
+    position: relative;
+}
+
+article {
+    color: white;
+    margin-left: 152px;
+}
+
+article p {
+    line-height: 25px;
+}

@@ -1,15 +1,26 @@
-﻿@model IEnumerable<TripSystem.Models.Reserva>
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+
+@model IEnumerable<TripSystem.Models.Reserva>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Dados dos passageiros</h2>
+<h3 class="page_title">Dados dos passageiros</h3>
 
-<p>
+<p class="checkout">
+    @Html.ActionLink("Finalizar", "Finalizar")
+</p>
+
+<p class="create-new">
     @Html.ActionLink("Incluir passageiro", "Create")
 </p>
-<table>
+
+<p style="padding:30px" />
+
+<table class="grid">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Excurcao.Titulo)
@@ -66,5 +77,4 @@
     </tr>
 }
 
-    @Html.ActionLink("Finalizar", "Finalizar")
 </table>

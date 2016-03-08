@@ -1,34 +1,26 @@
-﻿@model TripSystem.Models.Excurcao
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Detail.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.Models.Excurcao
 
 @{
     ViewBag.Title = "Excurcao - " + Model.Titulo;
 }
 
-<h2>@Model.Titulo</h2>
+<h2 class="title">@Model.Titulo</h2>
 
-<p>
+<p class="trip-container" style="background-image:url(../@Model.ExcurcaoArtUrl)">
     @{
         int position = Model.ExcurcaoArtUrl.LastIndexOf('/');
         string image = Model.ExcurcaoArtUrl.Substring(position + 1);
 
     }
-
-    <img alt="@Model.Titulo" src="~/Content/images/@image" />
 </p>
 
-<div id="album-details">
-    <p>
-        <em>Genero:</em>
-        @Model.Genero.Nome
-    </p>
-    <p>
-        <em>Guia:</em>
-        @Model.Guia.Nome
-    </p>
-    <p>
-        <em>Local de partida:</em>
-        @Model.LocalPartida
-    </p>
+<div id="trip-panel"></div>
+
+<div id="trip-details">
     <p>
         <em>Data de partida</em>
         @Model.DataPartida
@@ -38,26 +30,30 @@
         @Model.DataRetorno
     </p>
     <p>
-        <em>Preço unitário:</em>
-        @String.Format("{0:F}", Model.Preco)
+        <em>Local de partida:</em>
+        @Model.LocalPartida
     </p>
-
+    <p class="price">
+        <em>Preço por pessoa:</em>
+        <span>@String.Format("{0:F}", Model.Preco)</span>
+    </p>
 </div>
 
-@using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div id="trip-add-to-shopping-cart">
+    @using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <em>Quantidade de pessoas</em>
-        <div class="editor-label">
-            @Html.EditorFor(model => model.Quantidade)
-            @Html.ValidationMessageFor(model => model.Quantidade)
-        </div>
-        <p>
-            <input type="submit" value="Adicionar ao carrinho" />
-
-        </p>
-    </fieldset>
-}
+        <fieldset>
+            <em>Quantidade de pessoas</em>
+            <div class="editor-label">
+                @Html.EditorFor(model => model.Quantidade)
+                @Html.ValidationMessageFor(model => model.Quantidade)
+            </div>
+            <p>
+                <input type="submit" value="Adicionar ao carrinho" />
+            </p>
+        </fieldset>
+    }
+</div>

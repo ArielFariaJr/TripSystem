@@ -1,36 +1,25 @@
-﻿@model IEnumerable<TripSystem.Models.Transportadora>
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/Intranet.css")" rel="stylesheet" type="text/css" />
+}
+@Scripts.Render("~/Scripts/intranet.js")
+
+@model IEnumerable<TripSystem.Models.Transportadora>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3 class="page_title">Transportadoras</h3>
 
-<p>
+<p class="create-new">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+
+<p style="padding:30px" />
+<table class="grid">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CNPJ)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rua)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CEP)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Cidade)
@@ -40,42 +29,25 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CNPJ)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rua)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CEP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td width="18%">
+                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "details" })
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "edit" })
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "delete" })
+            </td>
+        </tr>
+    }
 </table>
+
+<div id="display-detail"></div>
