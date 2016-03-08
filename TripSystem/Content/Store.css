@@ -2,12 +2,6 @@
 /**Laytou changes for store*/
 .main-content {
     position: relative;
-    /*height: 100%;*/
-}
-
-/*remove title*/
-h3 {
-    display: none;
 }
 
 /*Hack to set the height of the body: will be used by JQuery*/

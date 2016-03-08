@@ -1,25 +1,10 @@
 ﻿//test
 
 $(document).ready(function () {
-    
-    adjustLogo();
+
     hideIntranetMenu();
 
 });
-
-function adjustLogo() {
-   
-    var href = document.location.href;
-
-    if (Utils.isHome(href)) {
-        $("#logo").removeClass("logo_content");
-        $("#logo").addClass("logo_home");
-    } else {
-        $("#logo").removeClass("logo_home");
-        $("#logo").addClass("logo_content");
-    }
-
-}
 
 /**
 * Method which strips out the pre-built menu and 
@@ -78,7 +63,9 @@ function hideIntranetMenu() {
 var Utils = {
     isHome: function (href) {
         var slashes = (href.match(/\//g) || []).length;
-        if (slashes == 3 && href.indexOf("?") == -1) {
+        var page = href.substring(href.lastIndexOf("/")+1);
+
+        if (slashes == 3 && page == "") {
             return true;
         } else {
             return false;

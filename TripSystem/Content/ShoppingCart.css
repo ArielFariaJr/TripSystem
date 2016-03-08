@@ -1,0 +1,38 @@
+﻿
+.main-content {
+    position: relative;
+}
+
+.shopping-cart-table {
+    background-color: #E2E2E2;
+    border: 3px solid #ABAAC1;
+    width: 100%;
+}
+
+.shopping-cart-table td, .shopping-cart-table th {
+    padding: 20px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.proceed-to-checkout a {
+    display: block;
+    background-color: #F18230;
+    color: white!important;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em!important;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    float: right;
+}
+
+#update-message {
+    display: none;
+    color: white;
+    padding: 8px 15px 8px 15px;
+    position: absolute;
+    top: 17px;
+    right: 0px;
+    background-color: #ABAAC1;
+}

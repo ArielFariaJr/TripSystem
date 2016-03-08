@@ -22,35 +22,82 @@
 
 }
 
-.excursao {
+/*Trip container*/
+.trip-container {
     border: 3px solid #ABAAC1;
+    height: 600px;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
-.excursao img {
-    width: 100%;
-}
-#album-details {
+/*details panel overlay*/
+#trip-panel {
     position: absolute;
-    top: 60%;
+    bottom: 17px;
+    margin-left: 3px;
+    margin-right: 2px;
+    width: 99.4%;
+    height: 45%;
+    background-color: #535272;
+    opacity: 0.9;
+}
+
+/*Trip details*/
+#trip-details {
+    position: absolute;
+    top: 58%;
     left: 5%;
-    background-color: white;
-    border: 3px solid #ABAAC1;
-    padding: 20px;
-    width: 50%;
+    padding: 0px;
+    width: 90%;
+    color:white;
 }
-.carrinho {
+
+#trip-details p {
+    font-size: 1.8em;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#trip-details p em {
+    display:block;
+    font-size: 0.6em!important;
+    font-style: normal;
+}
+
+#trip-details .price {
+    background-color: #F18230;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+}
+
+#trip-details .price em {
+    font-size: 0.7em!important;
+    font-weight: normal;
+}
+
+#trip-details .price span {
+    display: block;
+    font-size: 3em!important;
+    margin-top: -20px;
+}
+
+/*Add to shopping cart form*/
+#trip-add-to-shopping-cart {
     position: absolute;
-    top: 60%;
-    left: 62%;
-    background-color: white;
-    border: 3px solid #ABAAC1;
+    bottom: 9.5%;
+    left: 35%;
     padding: 20px;
     width: 29%;
+    z-index: 10;
+    color: white;
 }
-.carrinho fieldset p {
+#trip-add-to-shopping-cart fieldset p {
     padding: 0px!important;
     margin: 0px;
 }
-.carrinho input {
+#trip-add-to-shopping-cart .editor-label input {
     width: 50px;
 }

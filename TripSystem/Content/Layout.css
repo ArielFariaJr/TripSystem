@@ -17,34 +17,32 @@ body {
 }
 
 /*Ajustes da logo*/
-.logo_home {
-    position: absolute;
-    z-index:10;
-    display:block;
-    top: 90px;
-    left: 25px;
-}
-
-.logo_home img {
-    height: 60%;
-    width: 55%;
-}
-
-.logo_content {
+#logo {
     position: absolute;
     z-index:10;
     display:block;
     top: 10px;
     left: 5px;
-    width: 105px
+    width: 105px;
 }
 
- .logo_content img {
+#logo img {
     width: 100%;
 }
 
+#logo_home {
+    position: absolute;
+    z-index:10;
+    display:block;
+    top: 30px;
+    left: 25px;
+    width: 105px;
+}
 
-
+#logo_home img {
+    width: 230%;
+}
+ 
 /*Ajuste do menu principal*/
 .float-right {
     background-color: #F18230;
@@ -198,4 +196,18 @@ excurcao-list li {
 
 #excurcao-list .firstTrip a .titulo {
     font-size: 4.5em;
+}
+
+/*ALL SITE: page title*/
+.page_title {
+    position: absolute;
+    top: -30px;
+    left: 150px;
+    background-color: #696892;
+    color: white!important;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em!important;
+    padding: 10px!important;
 }

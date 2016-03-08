@@ -1,0 +1,41 @@
+﻿
+table {
+    margin-left: 152px;
+    width: 82%;
+}
+
+table td {
+    color: white;
+    vertical-align: top;
+}
+
+table td input {
+    display: block;
+    margin-bottom: 15px;
+}
+
+table td header h3 {
+    color: white;
+    margin: 0px;
+}
+
+table a {
+    color: #FFCC00!important;
+}
+
+table textarea {
+    height: 100px;
+    width: 300px;
+}
+
+.submit {
+    display: block;
+    background-color: #F18230!important;
+    color: white!important;
+    font-family: "Homenaje";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em!important;
+    padding: 10px 20px 10px 20px!important;
+    text-decoration: none;
+}

@@ -10,29 +10,17 @@
 
 <h2 class="title">@Model.Titulo</h2>
 
-<p class="excursao">
+<p class="trip-container" style="background-image:url(@Model.ExcurcaoArtUrl)">
     @{
         int position = Model.ExcurcaoArtUrl.LastIndexOf('/');
         string image = Model.ExcurcaoArtUrl.Substring(position + 1);
 
     }
-
-    <img alt="@Model.Titulo" src="@Model.ExcurcaoArtUrl" />
 </p>
 
-<div id="album-details">
-    <p>
-        <em>Genero:</em>
-        @Model.Genero.Nome
-    </p>
-    <p>
-        <em>Guia:</em>
-        @Model.Guia.Nome
-    </p>
-    <p>
-        <em>Local de partida:</em>
-        @Model.LocalPartida
-    </p>
+<div id="trip-panel"></div>
+
+<div id="trip-details">
     <p>
         <em>Data de partida</em>
         @Model.DataPartida
@@ -42,13 +30,16 @@
         @Model.DataRetorno
     </p>
     <p>
-        <em>Preço unitário:</em>
-        @String.Format("{0:F}", Model.Preco)
+        <em>Local de partida:</em>
+        @Model.LocalPartida
     </p>
-
+    <p class="price">
+        <em>Preço por pessoa:</em>
+        <span>@String.Format("{0:F}", Model.Preco)</span>
+    </p>
 </div>
 
-<div class="carrinho">
+<div id="trip-add-to-shopping-cart">
     @using (Html.BeginForm("AddToCart", "ShoppingCart", new { id = Model.ID, quantidade = Model.Quantidade }, FormMethod.Post))
     {
         @Html.AntiForgeryToken()

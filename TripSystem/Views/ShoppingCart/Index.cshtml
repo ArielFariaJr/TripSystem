@@ -1,4 +1,8 @@
-﻿@model TripSystem.ViewModels.ShoppingCartViewModel
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/ShoppingCart.css")" rel="stylesheet" type="text/css" />
+}
+
+@model TripSystem.ViewModels.ShoppingCartViewModel
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -46,15 +50,12 @@
         $('#cart-status').text('Cart (' + data.CartCount + ')');
     }
 </script>
-<h3>
-    <em>Revise</em> seu carrinho:
-</h3>
-<p class="button">
-    @Html.ActionLink("Finalizar compra", "Index", "Reserva")
-</p>
-<div id="update-message">
-</div>
-<table>
+<h3 class="page_title">Revisar carrinho</h3>
+
+<div id="update-message"></div>
+<p style="padding:30px"/>
+
+<table class="shopping-cart-table">
     <tr>
         <th>
             Pacote
@@ -95,3 +96,7 @@
         </td>
     </tr>
 </table>
+
+<p class="proceed-to-checkout">
+    @Html.ActionLink("Finalizar compra", "Index", "Reserva")
+</p>

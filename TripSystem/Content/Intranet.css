@@ -1,0 +1,58 @@
+﻿.main-content {
+    position: relative;
+}
+
+.grid {
+    background-color: #E2E2E2;
+    border: 3px solid #ABAAC1;
+    width: 100%;
+}
+
+.grid td, .grid th {
+    padding: 20px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.grid th {
+    background-color: #D2D2D2;
+}
+
+.create-new {
+    position: absolute;
+    right: 0px;
+    background-color: #E2E2E2;
+    border: 1px solid #ABAAC1;
+    padding: 8px 14px 8px 8px;
+    
+}
+.create-new a {
+    background: url("../Content/images/add.svg") no-repeat top left;
+    background-size: contain;
+    text-decoration: none;
+    display: block;
+    padding-left: 22px;
+    padding: 5px 0px 5px 35px;
+}
+
+.edit, .delete, .details {
+    display: block;
+    height:22px;
+    width:22px;
+    float: left;
+    margin-left: 10px;
+}
+
+.edit {
+    background: url("../Content/images/edit.svg") no-repeat top left;
+    background-size: contain;
+}
+
+.delete {
+    background: url("../Content/images/delete.svg") no-repeat top left;
+    background-size: contain;
+}
+
+.details {
+    background: url("../Content/images/document.svg") no-repeat top left;
+    background-size: contain;
+}

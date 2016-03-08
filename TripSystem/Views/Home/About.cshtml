@@ -1,28 +1,35 @@
-﻿@{  
-    ViewBag.Title = "About";
+﻿@section Styles {
+    <link href="@Url.Content("~/Content/About.css")" rel="stylesheet" type="text/css" />
+}
 
+@{  
+    ViewBag.Title = "About";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
+    <h3 class="page_title">@ViewBag.Title</h3>
+    <!--<h2>@ViewBag.Message</h2>-->
 </hgroup>
+
+<p style="padding:30px" />
 
 <article>
     <p>
-        Use this area to provide additional information.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
     </p>
 
     <p>
-        Use this area to provide additional information.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus risus a enim iaculis fringilla. 
+        Nunc egestas felis non dapibus cursus. Nunc rhoncus, ex bibendum interdum viverra, turpis ligula euismod orci, 
+        sit amet gravida dolor ipsum id eros. Mauris vel aliquam felis. Ut quis augue ligula. 
     </p>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
 </article>
 
-<aside>
+<aside style="display:none">
     <h3>Aside Title</h3>
     <p>
         Use this area to provide additional information.
