@@ -25,16 +25,7 @@ namespace TripSystem
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public DbSet<Carrinhoes> Carrinhoes { get; set; }
-        public DbSet<Contatoes> Contatoes { get; set; }
         public DbSet<Excurcaos> Excurcaos { get; set; }
-        public DbSet<Generoes> Generoes { get; set; }
-        public DbSet<Guias> Guias { get; set; }
-        public DbSet<ItensOrdems> ItensOrdems { get; set; }
-        public DbSet<Ordems> Ordems { get; set; }
         public DbSet<Reservas> Reservas { get; set; }
-        public DbSet<Transportadoras> Transportadoras { get; set; }
-        public DbSet<Veiculoes> Veiculoes { get; set; }
     }
 }

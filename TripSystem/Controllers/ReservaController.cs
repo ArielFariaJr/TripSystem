@@ -93,9 +93,9 @@ namespace TripSystem.Controllers
         //
         // GET: /Reserva/Details/5
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int ordemID, int passageiroID)
         {
-            Reserva reserva = db.Reserva.Find(id);
+            Reserva reserva = db.Reserva.Find(ordemID, passageiroID);
             if (reserva == null)
             {
                 return HttpNotFound();
@@ -121,6 +121,8 @@ namespace TripSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                var lastOrderMem = 0;
+
                 reserva.Username = User.Identity.Name.ToString();
                 reserva.OrderDate = DateTime.Now;
                 reserva.SessionID = Session.SessionID.ToString();
@@ -128,23 +130,31 @@ namespace TripSystem.Controllers
                 //Seleciona ultima ordem
                 var lastOrder = db.Reserva.OrderByDescending(p => p.OrdemId).Select(c => c.OrdemId).Take(1).FirstOrDefault();
 
-                var lastOrderMem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID).
-                    Select(p => p.OrdemId).FirstOrDefault();
-
-                if (lastOrder > lastOrderMem)
+                if (lastOrder == 0)
                 {
-
-                    lastOrder = lastOrder + 1;
-                    reserva.OrdemId = lastOrder;
+                    reserva.OrdemId = lastOrder = 1;
                 }
                 else
                 {
-                    reserva.OrdemId = lastOrderMem;
+
+                    lastOrderMem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID).
+                        Select(p => p.OrdemId).FirstOrDefault();
+
+                    if (lastOrder > lastOrderMem)
+                    {
+
+                        lastOrder = lastOrder + 1;
+                        reserva.OrdemId = lastOrder;
+                    }
+                    else
+                    {
+                        reserva.OrdemId = lastOrderMem;
+                    }
                 }
 
                 //Seleciona ultimo item da ordem atual
-                var lastItem = db.Reserva.Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID
-                    && x.OrdemId == lastOrderMem).Select(p => p.passageiroID).FirstOrDefault();
+                var lastItem = db.Reserva.OrderByDescending(a => a.passageiroID).Where(x => x.Username == User.Identity.Name && x.SessionID == Session.SessionID
+                    && x.OrdemId == lastOrderMem).Select(p => p.passageiroID).Take(1).FirstOrDefault();
 
                 lastItem = lastItem + 1;
                 reserva.passageiroID = lastItem;
@@ -162,9 +172,9 @@ namespace TripSystem.Controllers
         //
         // GET: /Reserva/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int ordemID, int passageiroID)
         {
-            Reserva reserva = db.Reserva.Find(id);
+            Reserva reserva = db.Reserva.Find(ordemID, passageiroID);
             if (reserva == null)
             {
                 return HttpNotFound();
@@ -182,6 +192,10 @@ namespace TripSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                reserva.Username  = User.Identity.Name.ToString();
+                reserva.SessionID = Session.SessionID.ToString();
+                reserva.OrderDate = DateTime.Now;
+
                 db.Entry(reserva).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -193,9 +207,9 @@ namespace TripSystem.Controllers
         //
         // GET: /Reserva/Delete/5
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Delete(int ordemID, int passageiroID)
         {
-            Reserva reserva = db.Reserva.Find(id);
+            Reserva reserva = db.Reserva.Find(ordemID, passageiroID);
             if (reserva == null)
             {
                 return HttpNotFound();
@@ -208,9 +222,9 @@ namespace TripSystem.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int ordemID, int passageiroID)
         {
-            Reserva reserva = db.Reserva.Find(id);
+            Reserva reserva = db.Reserva.Find(ordemID, passageiroID);
             db.Reserva.Remove(reserva);
             db.SaveChanges();
             return RedirectToAction("Index");

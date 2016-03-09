@@ -76,13 +76,47 @@ namespace TripSystem.Controllers
             {
                 return View("Index");
             }
-            List<Excurcaos> cm = new List<Excurcaos>();
+            List<ListaDeEmbarque> cm = new List<ListaDeEmbarque>();
             using (TripSystemEntities dc = new TripSystemEntities())
             {
-                cm = dc.Excurcaos.ToList();
+                var result = (from c in dc.Excurcaos
+                              join a in dc.Reservas
+                              on c.ID equals a.ExcurcaoId
+                              select new
+                              {
+                                  c.Titulo,
+                                  c.LocalPartida,
+                                  c.DataPartida,
+                                  c.DataRetorno,
+                                  a.Nome,
+                                  a.SobreNome,
+                                  a.Telefone,
+                                  a.Idade,
+                                  a.OrdemId,
+                              }).ToList();
+
+                foreach (var fc in result)
+                {
+
+                    ListaDeEmbarque epc = new ListaDeEmbarque();
+                    epc.Titulo = fc.Titulo;
+                    epc.LocalPartida = fc.LocalPartida;
+                    epc.DataPartida = fc.DataPartida;
+                    epc.DataRetorno = fc.DataRetorno;
+                    epc.Nome = fc.Nome;
+                    epc.SobreNome = fc.SobreNome;
+                    epc.Telefone = fc.Telefone;
+                    epc.Idade = fc.Idade;
+                    epc.OrdemId = fc.OrdemId;
+
+                    cm.Add(epc);
+                }
             }
-            ReportDataSource rd = new ReportDataSource("MyDataset", cm);
+
+            ReportDataSource rd = new ReportDataSource("MyDataSet", cm);
+            ReportDataSource rd2 = new ReportDataSource("DataSet1", cm);
             lr.DataSources.Add(rd);
+            lr.DataSources.Add(rd2);
             string reportType = id;
             string mimeType;
             string encoding;

@@ -16,8 +16,6 @@ namespace TripSystem
     {
         public Excurcaos()
         {
-            this.Carrinhoes = new HashSet<Carrinhoes>();
-            this.ItensOrdems = new HashSet<ItensOrdems>();
             this.Reservas = new HashSet<Reservas>();
         }
     
@@ -33,11 +31,6 @@ namespace TripSystem
         public decimal Preco { get; set; }
         public string ExcurcaoArtUrl { get; set; }
     
-        public virtual ICollection<Carrinhoes> Carrinhoes { get; set; }
-        public virtual Generoes Generoes { get; set; }
-        public virtual Guias Guias { get; set; }
-        public virtual Veiculoes Veiculoes { get; set; }
-        public virtual ICollection<ItensOrdems> ItensOrdems { get; set; }
         public virtual ICollection<Reservas> Reservas { get; set; }
     }
 }

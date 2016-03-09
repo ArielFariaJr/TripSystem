@@ -70,9 +70,9 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { ordemID = item.OrdemId, passageiroID = item.passageiroID}) |
+            @Html.ActionLink("Details", "Details", new { ordemID = item.OrdemId, passageiroID = item.passageiroID }) |
+            @Html.ActionLink("Delete", "Delete", new { ordemID = item.OrdemId, passageiroID = item.passageiroID })
         </td>
     </tr>
 }
